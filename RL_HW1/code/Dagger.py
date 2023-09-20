@@ -1,6 +1,7 @@
 import numpy as np
 from abc import abstractmethod
 import torch
+import matplotlib.pyplot as plt
 
 
 class DaggerAgent:
