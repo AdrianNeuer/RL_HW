@@ -1,7 +1,9 @@
 import numpy as np
 from abc import abstractmethod
 import torch
-import matplotlib.pyplot as plt
+import sklearn
+
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 
 class DaggerAgent:
@@ -30,7 +32,7 @@ class ExampleAgent(DaggerAgent):
         return label_predict
 
 
-class MyAgent(DaggerAgent):
+class MyAgent1(DaggerAgent):
     def __init__(self, necessary_parameters=None):
         super(DaggerAgent, self).__init__()
         # init your model

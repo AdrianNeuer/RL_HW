@@ -1,5 +1,5 @@
 from arguments import get_args
-from Dagger import DaggerAgent, ExampleAgent
+from Dagger import DaggerAgent, ExampleAgent, MyAgent1
 import numpy as np
 import time
 import gym
@@ -52,7 +52,7 @@ class Env(object):
         return obs_next, reward_sum, done, info
 
     def reset(self):
-        return self.env.reset()
+        return self.env.reset()[0]
 
 
 def main():
@@ -86,7 +86,7 @@ def main():
 
     # You can play this game yourself for fun
     if args.play_game:
-        obs = envs.reset()[0]
+        obs = envs.reset()
         while True:
             im = Image.fromarray(obs)
             im.save('imgs/' + str('screen') + '.jpeg')
@@ -110,12 +110,7 @@ def main():
             epsilon = 0.05
             if np.random.rand() < epsilon:
                 # we choose a random action
-                im = Image.fromarray(obs)
-                im.save('imgs/' + str('screen') + '.jpeg')
-                action = int(input("Please ask expert to type in action"))
-                query_cnt += 1
-                while action < 0 or action >= action_shape:
-                    action = int(input('Re-input action'))
+                action = envs.action_space.sample()
             else:
                 # we choose a special action according to our model
                 print("Get action from agent.")
