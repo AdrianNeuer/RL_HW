@@ -118,6 +118,7 @@ def main():
                     action = int(input('Re-input action'))
             else:
                 # we choose a special action according to our model
+                print("Get action from agent.")
                 action = agent.select_action(obs)
 
             # interact with the environment
