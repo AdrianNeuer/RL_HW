@@ -1,7 +1,7 @@
 import numpy as np
 from abc import abstractmethod
 import torch
-import matplotlib.pyplot as plt
+from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 
 
 class DaggerAgent:
