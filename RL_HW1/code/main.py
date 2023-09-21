@@ -1,5 +1,5 @@
 from arguments import get_args
-from Dagger import DaggerAgent, ExampleAgent, MyAgent1
+from Dagger import DaggerAgent, ExampleAgent, MyAgent
 import numpy as np
 import time
 import gym
