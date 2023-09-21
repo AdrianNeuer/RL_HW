@@ -87,6 +87,7 @@ def main():
     # You can play this game yourself for fun
     if args.play_game:
         obs = envs.reset()
+        print(type(obs))
         while True:
             im = Image.fromarray(obs)
             im.save('imgs/' + str('screen') + '.jpeg')

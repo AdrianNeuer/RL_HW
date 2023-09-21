@@ -8,7 +8,7 @@ def get_args():
     parser.add_argument(
         '--env-name',
         type=str,
-        default='MontezumaRevengeNoFrameskip-v4')
+        default='MontezumaRevengeNoFrameskip-v0')
     parser.add_argument(
         '--num-stacks',
         type=int,
@@ -16,7 +16,7 @@ def get_args():
     parser.add_argument(
         '--num-steps',
         type=int,
-        default=400)
+        default=100)
     parser.add_argument(
         '--test-steps',
         type=int,
