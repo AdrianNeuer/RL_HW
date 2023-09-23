@@ -16,7 +16,7 @@ label_batch = np.random.randint(0, 8, (250,))
 data_batch = torch.from_numpy(data_batch)
 label_batch = torch.from_numpy(label_batch)
 data_batch = data_batch.permute(0, 3, 1, 2)
-label_batch = label_batch.long()
+label_batch = label_batch.long()  # can be commented out
 data_batch = data_batch.to(device)
 label_batch = label_batch.to(device)
 

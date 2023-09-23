@@ -1,4 +1,5 @@
 import numpy as np
+from arguments import get_args
 from abc import abstractmethod
 import torch
 import torch.nn as nn
@@ -7,6 +8,7 @@ from torchvision.models import resnet18
 from torchvision.transforms import transforms
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
+args = get_args()
 
 
 class DaggerAgent:
@@ -39,6 +41,8 @@ class MyAgent(DaggerAgent):
     def __init__(self, necessary_parameters=None):
         super(DaggerAgent, self).__init__()
         # init your model
+        self.batch_size = args.num_steps
+
         self.transform = transforms.Compose([
             transforms.ToPILImage(),
             transforms.Resize((224, 224)),
@@ -46,6 +50,8 @@ class MyAgent(DaggerAgent):
             transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225]),
         ])
+
+        self.epochs = 2
 
         self.num_classes = 8
 
@@ -69,14 +75,21 @@ class MyAgent(DaggerAgent):
         data_batch = data_batch.to(device)
         label_batch = label_batch.to(device)
 
-        self.model.train()
+        for epoch in range(self.epochs):
+            self.model.train()
 
-        self.optimizer.zero_grad()
-        # self.model.train(data_batch, label_batch)
-        outputs = self.model(data_batch)
-        loss = self.loss_fn(outputs, label_batch)
-        loss.backward()  # Backpropagation
-        self.optimizer.step()
+            for i in range(0, len(data_batch), self.batch_size):
+
+                inputs = torch.stack([self.transform(img)
+                                     for img in data_batch[i:i+self.batch_size]])
+                labels = label_batch[i:i+self.batch_size]
+
+                self.optimizer.zero_grad()
+                outputs = self.model(inputs)
+
+                loss = self.loss_fn(outputs, labels)
+                loss.backward()  # Backpropagation
+                self.optimizer.step()
 
     # select actions by your model
     def select_action(self, data_batch):
