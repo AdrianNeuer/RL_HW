@@ -69,15 +69,15 @@ class MyAgent(DaggerAgent):
 
         data_batch = np.array(data_batch)
         label_batch = np.array(label_batch)
-        data_batch = torch.from_numpy(data_batch)
+        data_batch = torch.from_numpy(data_batch).float()
         label_batch = torch.from_numpy(label_batch)
         data_batch = data_batch.permute(0, 3, 1, 2)
         data_batch = data_batch.to(device)
         label_batch = label_batch.to(device)
 
+        self.model.train()
         for epoch in range(self.epochs):
             total_loss = 0
-            self.model.train()
 
             for i in range(0, len(data_batch), self.batch_size):
 
@@ -96,12 +96,14 @@ class MyAgent(DaggerAgent):
 
     # select actions by your model
     def select_action(self, data_batch):
-        data_batch = torch.from_numpy(data_batch).float()
-        data_batch = torch.squeeze(data_batch, dim=0)
-        data_batch = data_batch.permute(2, 0, 1)
+        data_batch = torch.from_numpy(data_batch)
+        # print(data_batch.shape)
+        data_batch = data_batch.permute(0, 3, 1, 2)
         data_batch = data_batch.to(device)
 
         label_predict = self.model(data_batch)
+
+        label_predict = torch.squeeze(label_predict, dim=0)
 
         label_predict = label_predict.cpu().numpy()
 
