@@ -82,7 +82,7 @@ def main():
     # agent initial
     # you should finish your agent with DaggerAgent
     # e.g. agent = MyDaggerAgent()
-    agent = ExampleAgent()
+    agent = MyAgent()
 
     # You can play this game yourself for fun
     if args.play_game:
@@ -102,6 +102,8 @@ def main():
     data_set = {'data': [], 'label': []}
     # start train your agent
     for i in range(num_updates):
+        # delete all the label in txt
+        file = open("imgs/label.txt", 'w').close()
         # an example of interacting with the environment
         # we init the environment and receive the initial observation
         obs = envs.reset()
@@ -114,7 +116,7 @@ def main():
                 action = envs.action_space.sample()
             else:
                 # we choose a special action according to our model
-                print("Get action from agent.")
+                # print("Get action from agent.")
                 action = agent.select_action(obs)
 
             # interact with the environment
@@ -135,18 +137,26 @@ def main():
             # an example of saving observations
             if args.save_img:
                 im = Image.fromarray(obs)
+                im.show()
                 im.save('imgs/' + str(step) + '.jpeg')
             data_set['data'].append(obs)
 
         # You need to label the images in 'imgs/' by recording the
             # right actions in label.txt
+            action = int(input('input action'))
+            while action < 0 or action >= action_shape:
+                action = int(input('re-input action'))
+
+            if action > 6:
+                action -= 5
+
             with open('imgs/label.txt', 'a') as f:
                 f.write(str(action) + "\n")
         # After you have labeled all the images, you can load the labels
         # for training a model
         with open('imgs/label.txt', 'r') as f:
             for label_tmp in f.readlines():
-                data_set['label'].append(label_tmp)
+                data_set['label'].append(int(label_tmp))
 
         # design how to train your model with labeled data
         agent.update(data_set['data'], data_set['label'])

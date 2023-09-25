@@ -76,6 +76,7 @@ class MyAgent(DaggerAgent):
         label_batch = label_batch.to(device)
 
         for epoch in range(self.epochs):
+            total_loss = 0
             self.model.train()
 
             for i in range(0, len(data_batch), self.batch_size):
@@ -88,10 +89,25 @@ class MyAgent(DaggerAgent):
                 outputs = self.model(inputs)
 
                 loss = self.loss_fn(outputs, labels)
+                total_loss += loss.item()
                 loss.backward()  # Backpropagation
                 self.optimizer.step()
+            print("Epoch: {}, Loss: {}.".format(epoch, total_loss))
 
     # select actions by your model
     def select_action(self, data_batch):
-        label_predict = self.model.predict(data_batch)
+        data_batch = torch.from_numpy(data_batch).float()
+        data_batch = torch.squeeze(data_batch, dim=0)
+        data_batch = data_batch.permute(2, 0, 1)
+        data_batch = data_batch.to(device)
+
+        label_predict = self.model(data_batch)
+
+        label_predict = label_predict.cpu().numpy()
+
+        label_predict = np.argmax(label_predict, axis=0)
+
+        if label_predict > 5:
+            label_predict += 5
+
         return label_predict
