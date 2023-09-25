@@ -1,3 +1,5 @@
+import gym
+import cv2
 from abc import ABC
 import numpy as np
 from torch import nn
@@ -6,6 +8,10 @@ from torch.distributions.categorical import Categorical
 
 
 # Expert Model, load weights from ./params.pth
+
+def conv_shape(input, kernel_size, stride, padding=0):
+    return (input + 2 * padding - kernel_size) // stride + 1
+
 
 class PolicyModel(nn.Module, ABC):
 
@@ -81,3 +87,105 @@ class PolicyModel(nn.Module, ABC):
         dist = Categorical(probs)
 
         return dist, int_value, ext_value, probs
+
+
+def mean_of_list(func):
+    def function_wrapper(*args, **kwargs):
+        lists = func(*args, **kwargs)
+        return [sum(list) / len(list) for list in lists[:-4]] + [explained_variance(lists[-4], lists[-3])] + \
+               [explained_variance(lists[-2], lists[-1])]
+
+    return function_wrapper
+
+
+def preprocessing(img):
+    img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    img = cv2.resize(img, (84, 84), interpolation=cv2.INTER_AREA)
+    return img
+
+
+def stack_states(stacked_frames, state, is_new_episode):
+    frame = preprocessing(state)
+
+    if is_new_episode:
+        stacked_frames = np.stack([frame for _ in range(4)], axis=0)
+    else:
+        stacked_frames = stacked_frames[1:, ...]
+        stacked_frames = np.concatenate(
+            [stacked_frames, np.expand_dims(frame, axis=0)], axis=0)
+    return stacked_frames
+
+
+# Calculates if value function is a good predictor of the returns (ev > 1)
+# or if it's just worse than predicting nothing (ev =< 0)
+def explained_variance(ypred, y):
+    """
+    Computes fraction of variance that ypred explains about y.
+    Returns 1 - Var[y-ypred] / Var[y]
+    interpretation:
+        ev=0  =>  might as well have predicted zero
+        ev=1  =>  perfect prediction
+        ev<0  =>  worse than just predicting zero
+    """
+    assert y.ndim == 1 and ypred.ndim == 1
+    vary = np.var(y)
+    return np.nan if vary == 0 else 1 - np.var(y - ypred) / vary
+
+
+def make_atari(env_id, max_episode_steps, sticky_action=True, max_and_skip=True):
+    env = gym.make(env_id, render_mode='human')
+    # print(env._max_episode_steps)
+    env._max_episode_steps = max_episode_steps * 4
+
+    assert 'NoFrameskip' in env.spec.id
+    if sticky_action:
+        env = StickyActionEnv(env)
+    if max_and_skip:
+        env = RepeatActionEnv(env)
+    # env = MontezumaVisitedRoomEnv(env, 3)
+    # env = AddRandomStateToInfoEnv(env)
+
+    return env
+
+
+class StickyActionEnv(gym.Wrapper):
+    def __init__(self, env, p=0.25):
+        super(StickyActionEnv, self).__init__(env)
+        self.p = p
+        self.last_action = 0
+
+    def step(self, action):
+        if np.random.uniform() < self.p:
+            action = self.last_action
+
+        self.last_action = action
+        return self.env.step(action)
+
+    def reset(self):
+        self.last_action = 0
+        return self.env.reset()
+
+
+class RepeatActionEnv(gym.Wrapper):
+    def __init__(self, env):
+        gym.Wrapper.__init__(self, env)
+        self.successive_frame = np.zeros(
+            (2,) + self.env.observation_space.shape, dtype=np.uint8)
+
+    def reset(self, **kwargs):
+        return self.env.reset(**kwargs)
+
+    def step(self, action):
+        reward, done = 0, False
+        for t in range(4):
+            state, r, done, _, info = self.env.step(action)
+            if t == 2:
+                self.successive_frame[0] = state
+            elif t == 3:
+                self.successive_frame[1] = state
+            reward += r
+            if done:
+                break
+
+        state = self.successive_frame.max(axis=0)
+        return state, reward, done, info

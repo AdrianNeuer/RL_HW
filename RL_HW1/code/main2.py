@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from PIL import Image
 
+from Expert.Expert import *
+
 # Traing process with an expert_model guide
 
 
