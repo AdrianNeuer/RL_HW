@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from PIL import Image
 
+# Traing process with an expert_model guide
+
 
 def plot(record):
     plt.figure()
@@ -81,7 +83,7 @@ def main():
 
     # agent initial
     # you should finish your agent with DaggerAgent
-    agent = MyDaggerAgent(necessary_parameters=action_shape)
+    agent = MyDaggerAgent()
     # agent = DaggerAgent()
 
     # You can play this game yourself for fun
@@ -99,11 +101,11 @@ def main():
                 obs = envs.reset()
 
     data_set = {'data': [], 'label': []}
-    with open('./imgs/label.txt', 'w') as f:
-        f.truncate()
 
     # start train your agent
     for i in range(num_updates):
+        # delete all the label in txt
+        # file = open("imgs/label.txt", 'w').close()
         # an example of interacting with the environment
         # we init the environment and receive the initial observation
         obs = envs.reset()
@@ -112,18 +114,10 @@ def main():
             # Sample actions
             epsilon = 0.05
             if np.random.rand() < epsilon:
-                # ask the expert
-                im = Image.fromarray(obs)
-                im.save('imgs/' + str('screen') + '.jpeg')
-                action = int(input('input expert action'))
-                while action < 0 or action >= action_shape:
-                    action = int(input('re-input action'))
-                query_cnt += 1
-                data_set['data'].append(obs)
-                data_set['label'].append(action)
+                # we choose a random action
+                action = envs.action_space.sample()
             else:
                 # we choose a special action according to our model
-                print("Choose action from model")
                 action = agent.select_action(obs)
 
             # interact with the environment

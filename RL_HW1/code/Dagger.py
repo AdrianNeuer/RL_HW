@@ -97,17 +97,20 @@ class MyAgent(DaggerAgent):
     # select actions by your model
     def select_action(self, data_batch):
         data_batch = torch.from_numpy(data_batch).float()
-        data_batch = torch.squeeze(data_batch, dim=0)
-        data_batch = data_batch.permute(2, 0, 1)
+        data_batch = torch.unsqueeze(data_batch, dim=0)
+        data_batch = data_batch.permute(0, 3, 1, 2)
         data_batch = data_batch.to(device)
 
         label_predict = self.model(data_batch)
 
-        label_predict = label_predict.cpu().numpy()
+        label_predict = torch.squeeze(label_predict, dim=0)
+        label_predict = label_predict.cpu().detach().numpy()
 
         label_predict = np.argmax(label_predict, axis=0)
 
         if label_predict > 5:
             label_predict += 5
+
+        # print(label_predict)
 
         return label_predict

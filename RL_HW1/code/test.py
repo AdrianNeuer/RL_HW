@@ -8,6 +8,8 @@ import numpy as np
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
+# test if data_batch could be trained by resnet18
+
 data_batch = np.random.randn(250, 210, 160, 3)
 data_batch = data_batch.astype(np.float32)
 label_batch = np.random.randint(0, 8, (250,))
