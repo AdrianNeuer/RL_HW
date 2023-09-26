@@ -1,5 +1,5 @@
 from arguments import get_args
-from Dagger import DaggerAgent, ExampleAgent, MyDaggerAgent
+from Dagger import DaggerAgent, ExampleAgent, MyAgent
 import numpy as np
 import time
 import gym
@@ -7,9 +7,12 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from PIL import Image
 
+import torch
 from Expert.Expert import *
 
 # Traing process with an expert_model guide
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 def plot(record):
@@ -48,7 +51,7 @@ class Env(object):
     def step(self, action):
         reward_sum = 0
         for stack in range(self.num_stacks):
-            obs_next, reward, done, info = self.env.step(action)
+            obs_next, reward, done, _, info = self.env.step(action)
             reward_sum += reward
             if done:
                 self.env.reset()
@@ -56,7 +59,7 @@ class Env(object):
         return obs_next, reward_sum, done, info
 
     def reset(self):
-        return self.env.reset()
+        return self.env.reset()[0]
 
 
 def main():
@@ -73,7 +76,8 @@ def main():
     query_cnt = 0
 
     # environment initial
-    envs = Env(args.env_name, args.num_stacks)
+    # envs = Env(args.env_name, args.num_stacks)
+    envs = make_atari(args.env_name, 4500)
     # action_shape is the size of the discrete action set, here is 18
     # Most of the 18 actions are useless, find important actions
     # in the tips of the homework introduction document
@@ -83,10 +87,14 @@ def main():
     observation_shape = envs.observation_space.shape
     print(action_shape, observation_shape)
 
+    # Expert Model load
+    expert = PolicyModel((4, 84, 84), action_shape).to(device)
+    checkpoint = torch.load("Expert/params.pth")
+    expert.load_state_dict(checkpoint["current_policy_state_dict"])
+
     # agent initial
     # you should finish your agent with DaggerAgent
-    agent = MyDaggerAgent()
-    # agent = DaggerAgent()
+    agent = MyAgent()
 
     # You can play this game yourself for fun
     if args.play_game:
@@ -105,40 +113,43 @@ def main():
     data_set = {'data': [], 'label': []}
 
     # start train your agent
+    stacked_states = np.zeros((84, 84, 4), dtype=np.uint8)
+
     for i in range(num_updates):
+        print("NUM_UPDATES: {}.".format(i))
         # delete all the label in txt
         # file = open("imgs/label.txt", 'w').close()
         # an example of interacting with the environment
         # we init the environment and receive the initial observation
         obs = envs.reset()
         # we get a trajectory with the length of args.num_steps
+
         for step in range(args.num_steps):
             # Sample actions
             epsilon = 0.05
+            stacked_states = stack_states(stacked_states, obs, True)
+
             if np.random.rand() < epsilon:
                 # we choose a random action
                 action = envs.action_space.sample()
+                # print(action)
             else:
                 # we choose a special action according to our model
                 action = agent.select_action(obs)
 
+            expert_action = get_actions_and_values(expert, stacked_states)
+            query_cnt += 1
+
+            data_set['data'].append(obs)
+            data_set['label'].append(expert_action)
+
             # interact with the environment
-            # we input the action to the environments and it returns some information
-            # obs_next: the next observation after we do the action
-            # reward: (float) the reward achieved by the action
-            # down: (boolean)  whether it’s time to reset the environment again.
-            #           done being True indicates the episode has terminated.
             obs_next, reward, done, _ = envs.step(action)
             # we view the new observation as current observation
             obs = obs_next
             # if the episode has terminated, we need to reset the environment.
             if done:
                 envs.reset()
-
-            # an example of saving observations
-            if args.save_img:
-                im = Image.fromarray(obs)
-                im.save('imgs/' + str(step) + '.jpeg')
 
         # design how to train your model with labeled data
         agent.update(data_set['data'], data_set['label'])

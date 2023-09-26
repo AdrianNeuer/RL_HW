@@ -16,7 +16,7 @@ def get_args():
     parser.add_argument(
         '--num-steps',
         type=int,
-        default=100)
+        default=400)
     parser.add_argument(
         '--test-steps',
         type=int,
@@ -30,7 +30,7 @@ def get_args():
     parser.add_argument(
         '--log-interval',
         type=int,
-        default=10,
+        default=25,
         help='log interval, one log per n updates (default: 10)')
     parser.add_argument(
         '--save-img',

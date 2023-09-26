@@ -2,12 +2,16 @@ import gym
 import cv2
 from abc import ABC
 import numpy as np
+import torch
 from torch import nn
 from torch.nn import functional as F
 from torch.distributions.categorical import Categorical
 
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 # Expert Model, load weights from ./params.pth
+
 
 def conv_shape(input, kernel_size, stride, padding=0):
     return (input + 2 * padding - kernel_size) // stride + 1
@@ -89,13 +93,15 @@ class PolicyModel(nn.Module, ABC):
         return dist, int_value, ext_value, probs
 
 
-def mean_of_list(func):
-    def function_wrapper(*args, **kwargs):
-        lists = func(*args, **kwargs)
-        return [sum(list) / len(list) for list in lists[:-4]] + [explained_variance(lists[-4], lists[-3])] + \
-               [explained_variance(lists[-2], lists[-1])]
-
-    return function_wrapper
+def get_actions_and_values(expert, state, batch=False):
+    if not batch:
+        state = np.expand_dims(state, 0)
+    state = torch.from_numpy(state).to(device)
+    with torch.no_grad():
+        dist, int_value, ext_value, action_prob = expert(state)
+        action = np.argmax(dist.probs.cpu().numpy()[
+                           0][np.ix_([0, 1, 2, 3, 4, 5, 11, 12])])
+    return action
 
 
 def preprocessing(img):
@@ -116,24 +122,8 @@ def stack_states(stacked_frames, state, is_new_episode):
     return stacked_frames
 
 
-# Calculates if value function is a good predictor of the returns (ev > 1)
-# or if it's just worse than predicting nothing (ev =< 0)
-def explained_variance(ypred, y):
-    """
-    Computes fraction of variance that ypred explains about y.
-    Returns 1 - Var[y-ypred] / Var[y]
-    interpretation:
-        ev=0  =>  might as well have predicted zero
-        ev=1  =>  perfect prediction
-        ev<0  =>  worse than just predicting zero
-    """
-    assert y.ndim == 1 and ypred.ndim == 1
-    vary = np.var(y)
-    return np.nan if vary == 0 else 1 - np.var(y - ypred) / vary
-
-
 def make_atari(env_id, max_episode_steps, sticky_action=True, max_and_skip=True):
-    env = gym.make(env_id, render_mode='human')
+    env = gym.make(env_id)
     # print(env._max_episode_steps)
     env._max_episode_steps = max_episode_steps * 4
 
@@ -163,7 +153,7 @@ class StickyActionEnv(gym.Wrapper):
 
     def reset(self):
         self.last_action = 0
-        return self.env.reset()
+        return self.env.reset()[0]
 
 
 class RepeatActionEnv(gym.Wrapper):
