@@ -70,11 +70,13 @@ class MyAgent(DaggerAgent):
         data_batch = np.array(data_batch)
         label_batch = np.array(label_batch)
 
+        """
         # shuffle
         indices = np.arange(self.batch_size)
         np.random.shuffle(indices)
         data_batch = data_batch[indices]
         label_batch = label_batch[indices]
+        """
 
         label_batch = torch.from_numpy(label_batch)
         label_batch = label_batch.to(device)
@@ -98,7 +100,7 @@ class MyAgent(DaggerAgent):
                 total_loss += loss.item()
                 loss.backward()
                 self.optimizer.step()
-            print("Epoch: {}, Loss: {}.".format(epoch, total_loss))
+            print("Epoch: {}, Loss: {}.".format(epoch + 1, total_loss))
 
     # select actions by your model
     def select_action(self, data_batch):

@@ -11,6 +11,15 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 # test if data_batch could be trained by resnet18
 
 data_batch = np.random.randn(250, 210, 160, 3)
+
+data = []
+
+for x in data_batch:
+    data.append(x)
+
+print(data[0:2])
+assert 0
+
 data_batch = data_batch.astype(np.float32)
 label_batch = np.random.randint(0, 8, (250,))
 # print(data_batch.shape, label_batch.shape)

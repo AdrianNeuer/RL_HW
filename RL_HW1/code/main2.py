@@ -116,9 +116,24 @@ def main():
     stacked_states = np.zeros((84, 84, 4), dtype=np.uint8)
 
     for i in range(num_updates):
-        print("NUM_UPDATES: {}.".format(i))
+        print("NUM_UPDATES: {}.".format(i + 1))
         # delete all the label in txt
         # file = open("imgs/label.txt", 'w').close()
+
+        if len(data_set['data']) == 10000:
+            indice = np.random.choice(
+                len(data_set['label']), 400, replace=False)
+            data_set['data'] = np.delete(
+                data_set['data'], indice, axis=0)
+
+            data = data_set['data']
+            data_set['data'] = []
+            for arr in data:
+                data_set['data'].append(arr)
+
+            data_set['label'] = np.delete(
+                data_set['label'], indice, axis=0).tolist()
+
         # an example of interacting with the environment
         # we init the environment and receive the initial observation
         obs = envs.reset()
