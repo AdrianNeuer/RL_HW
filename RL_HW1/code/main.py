@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from PIL import Image
 
+# Training process with human guide
+
 
 def plot(record):
     plt.figure()
@@ -112,12 +114,25 @@ def main():
             # Sample actions
             epsilon = 0.05
             if np.random.rand() < epsilon:
+                """
+                # ask the expert
+                im = Image.fromarray(obs)
+                plt.figure()
+                plt.imshow(im)
+                plt.show()
+                action = int(input('input expert action'))
+                while action < 0 or action >= action_shape:
+                    action = int(input('re-input action'))
+                query_cnt += 1
+                """
                 # we choose a random action
                 action = envs.action_space.sample()
             else:
                 # we choose a special action according to our model
                 # print("Get action from agent.")
                 action = agent.select_action(obs)
+                if action > 5:
+                    action += 5
 
             # interact with the environment
             # we input the action to the environments and it returns
@@ -137,7 +152,10 @@ def main():
             # an example of saving observations
             if args.save_img:
                 im = Image.fromarray(obs)
-                im.show()
+                # im.show()
+                plt.figure()
+                plt.imshow(im)
+                plt.show()
                 im.save('imgs/' + str(step) + '.jpeg')
             data_set['data'].append(obs)
 
@@ -146,6 +164,7 @@ def main():
             action = int(input('input action'))
             while action < 0 or action >= action_shape:
                 action = int(input('re-input action'))
+            query_cnt += 1
 
             if action > 6:
                 action -= 5
@@ -174,6 +193,8 @@ def main():
                 obs_next, reward, done, _ = envs.step(action)
                 reward_episode += reward
                 obs = obs_next
+                if step == args.test_steps - 1:
+                    reward_episode_set.append(reward_episode)
                 if done:
                     reward_episode_set.append(reward_episode)
                     reward_episode = 0

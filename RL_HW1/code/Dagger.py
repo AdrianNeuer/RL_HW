@@ -7,7 +7,7 @@ import torch.optim as optim
 from torchvision.models import resnet18
 from torchvision.transforms import transforms
 
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 args = get_args()
 
 
@@ -51,7 +51,7 @@ class MyAgent(DaggerAgent):
                                  std=[0.229, 0.224, 0.225]),
         ])
 
-        self.epochs = 2
+        self.epochs = 10
 
         self.num_classes = 8
 
@@ -69,10 +69,15 @@ class MyAgent(DaggerAgent):
 
         data_batch = np.array(data_batch)
         label_batch = np.array(label_batch)
-        data_batch = torch.from_numpy(data_batch).float()
+
+        """
+        # shuffle
+        indices = np.arange(data_batch.shape[0])
+        np.random.shuffle(indices)
+        data_batch = data_batch[indices]
+        label_batch = label_batch[indices]
+        """
         label_batch = torch.from_numpy(label_batch)
-        data_batch = data_batch.permute(0, 3, 1, 2)
-        data_batch = data_batch.to(device)
         label_batch = label_batch.to(device)
 
         self.model.train()
@@ -83,6 +88,8 @@ class MyAgent(DaggerAgent):
 
                 inputs = torch.stack([self.transform(img)
                                      for img in data_batch[i:i+self.batch_size]])
+                inputs = inputs.to(device)
+
                 labels = label_batch[i:i+self.batch_size]
 
                 self.optimizer.zero_grad()
@@ -90,26 +97,23 @@ class MyAgent(DaggerAgent):
 
                 loss = self.loss_fn(outputs, labels)
                 total_loss += loss.item()
-                loss.backward()  # Backpropagation
+                loss.backward()
                 self.optimizer.step()
-            print("Epoch: {}, Loss: {}.".format(epoch, total_loss))
+            print("Epoch: {}, Loss: {}.".format(epoch + 1, total_loss))
 
     # select actions by your model
     def select_action(self, data_batch):
-        data_batch = torch.from_numpy(data_batch)
-        # print(data_batch.shape)
-        data_batch = data_batch.permute(0, 3, 1, 2)
+        data_batch = torch.from_numpy(data_batch).float()
+        data_batch = torch.squeeze(data_batch, dim=0)
+        data_batch = data_batch.permute(2, 0, 1)
         data_batch = data_batch.to(device)
 
         label_predict = self.model(data_batch)
-
-        label_predict = torch.squeeze(label_predict, dim=0)
 
         label_predict = label_predict.cpu().numpy()
 
         label_predict = np.argmax(label_predict, axis=0)
 
-        if label_predict > 5:
-            label_predict += 5
+        # print(label_predict)
 
         return label_predict

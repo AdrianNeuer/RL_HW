@@ -16,7 +16,7 @@ def get_args():
     parser.add_argument(
         '--num-steps',
         type=int,
-        default=100)
+        default=400)
     parser.add_argument(
         '--test-steps',
         type=int,
