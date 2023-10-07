@@ -22,7 +22,17 @@ def get_args():
         type=int,
         default=100000)
 
-    ## other parameter
+    parser.add_argument(
+        '--lr',
+        type=float,
+        default=0.01)
+
+    parser.add_argument(
+        '--gamma',
+        type=float,
+        default=0.9)
+
+    # other parameter
     parser.add_argument(
         '--log-interval',
         type=int,
@@ -38,6 +48,5 @@ def get_args():
         default=10,
         help='save interval, one eval per n updates (default: None)')
     args = parser.parse_args()
-
 
     return args
