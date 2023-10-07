@@ -188,6 +188,8 @@ def main():
             # evaluate your model by testing in the environment
             for step in range(args.test_steps):
                 action = agent.select_action(obs)
+                if action > 5:
+                    action += 5
                 # you can render to get visual results
                 # envs.render()
                 obs_next, reward, done, _ = envs.step(action)
