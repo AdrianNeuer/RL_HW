@@ -117,9 +117,6 @@ class MyAgent(DaggerAgent):
 
         label_predict = np.argmax(label_predict, axis=0)
 
-        if label_predict > 5:
-            label_predict += 5
-
         # print(label_predict)
 
         return label_predict

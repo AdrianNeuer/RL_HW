@@ -76,7 +76,6 @@ def main():
     query_cnt = 0
 
     # environment initial
-    # envs = Env(args.env_name, args.num_stacks)
     envs = make_atari(args.env_name, 4500)
     # action_shape is the size of the discrete action set, here is 18
     # Most of the 18 actions are useless, find important actions
@@ -151,6 +150,8 @@ def main():
             else:
                 # we choose a special action according to our model
                 action = agent.select_action(obs)
+                if action > 5:
+                    action += 5
 
             expert_action = get_actions_and_values(expert, stacked_states)
             query_cnt += 1

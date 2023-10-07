@@ -131,6 +131,8 @@ def main():
                 # we choose a special action according to our model
                 # print("Get action from agent.")
                 action = agent.select_action(obs)
+                if action > 5:
+                    action += 5
 
             # interact with the environment
             # we input the action to the environments and it returns
@@ -191,6 +193,8 @@ def main():
                 obs_next, reward, done, _ = envs.step(action)
                 reward_episode += reward
                 obs = obs_next
+                if step == args.test_steps - 1:
+                    reward_episode_set.append(reward_episode)
                 if done:
                     reward_episode_set.append(reward_episode)
                     reward_episode = 0
