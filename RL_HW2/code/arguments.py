@@ -30,7 +30,7 @@ def get_args():
     parser.add_argument(
         '--gamma',
         type=float,
-        default=0.9)
+        default=0.7)
 
     # other parameter
     parser.add_argument(

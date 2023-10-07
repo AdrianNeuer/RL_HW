@@ -84,7 +84,7 @@ def main():
         obs = envs.reset()
         for step in range(args.num_steps):
             # Sample actions with epsilon greedy policy
-            epsilon = 1
+            epsilon = 0.1
             if np.random.rand() < epsilon:
                 action = envs.action_sample()
             else:
