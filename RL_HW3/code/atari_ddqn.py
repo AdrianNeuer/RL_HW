@@ -12,13 +12,15 @@ from model import CnnDQN
 from trainer import Trainer
 import numpy as np
 
+
 class CnnDDQNAgent:
     def __init__(self, config: Config):
         self.config = config
         self.is_training = True
         self.buffer = RolloutStorage(config)
         self.model = CnnDQN(self.config.state_shape, self.config.action_dim)
-        self.target_model = CnnDQN(self.config.state_shape, self.config.action_dim)
+        self.target_model = CnnDQN(
+            self.config.state_shape, self.config.action_dim)
         self.target_model.load_state_dict(self.model.state_dict())
         self.model_optim = torch.optim.RMSprop(self.model.parameters(), lr=self.config.learning_rate,
                                                eps=1e-5, weight_decay=0.95, momentum=0, centered=True)
@@ -27,7 +29,8 @@ class CnnDDQNAgent:
             self.cuda()
 
     def act(self, state, epsilon=None):
-        if epsilon is None: epsilon = self.config.epsilon_min
+        if epsilon is None:
+            epsilon = self.config.epsilon_min
         if random.random() > epsilon or not self.is_training:
             state = torch.tensor(state, dtype=torch.float)/255.0
             if self.config.use_cuda:
@@ -93,7 +96,7 @@ class CnnDDQNAgent:
         torch.save({
             'frames': fr,
             'model': self.model.state_dict()
-        }, '%s/checkpoint_fr_%d.tar'% (checkpath, fr))
+        }, '%s/checkpoint_fr_%d.tar' % (checkpath, fr))
 
     def load_checkpoint(self, model_path):
         checkpoint = torch.load(model_path)
@@ -106,17 +109,23 @@ class CnnDDQNAgent:
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('--train', dest='train', action='store_true', help='train model')
-    parser.add_argument('--env', default='PongNoFrameskip-v4', type=str, help='gym environment')
-    parser.add_argument('--test', dest='test', action='store_true', help='test model')
-    parser.add_argument('--retrain', dest='retrain', action='store_true', help='retrain model')
-    parser.add_argument('--model_path', type=str, help='if test or retrain, import the model')
+    parser.add_argument('--train', dest='train',
+                        action='store_true', help='train model')
+    parser.add_argument('--env', default='PongNoFrameskip-v4',
+                        type=str, help='gym environment')
+    parser.add_argument('--test', dest='test',
+                        action='store_true', help='test model')
+    parser.add_argument('--retrain', dest='retrain',
+                        action='store_true', help='retrain model')
+    parser.add_argument('--model_path', type=str,
+                        help='if test or retrain, import the model')
     parser.add_argument(
         '--no-cuda',
         action='store_true',
         default=False,
         help='disables CUDA training')
-    parser.add_argument('--cuda_id', type=str, default='0', help='if test or retrain, import the model')
+    parser.add_argument('--cuda_id', type=str, default='0',
+                        help='if test or retrain, import the model')
     args = parser.parse_args()
     args.cuda = not args.no_cuda and torch.cuda.is_available()
 

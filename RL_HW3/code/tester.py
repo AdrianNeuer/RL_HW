@@ -31,12 +31,9 @@ class Tester(object):
                     done = True
 
             if debug:
-                print('[Test] episode: %3d, episode_reward: %5f' % (episode, episode_reward))
+                print('[Test] episode: %3d, episode_reward: %5f' %
+                      (episode, episode_reward))
 
             avg_reward += episode_reward
         avg_reward /= self.num_episodes
         print("avg reward: %5f" % (avg_reward))
-
-
-
-

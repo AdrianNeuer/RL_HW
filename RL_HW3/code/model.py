@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 
+
 class DQN(nn.Module):
     def __init__(self, num_inputs, actions_dim):
         super(DQN, self).__init__()
@@ -15,6 +16,7 @@ class DQN(nn.Module):
 
     def forward(self, x):
         return self.nn(x)
+
 
 class CnnDQN(nn.Module):
     def __init__(self, inputs_shape, num_actions):

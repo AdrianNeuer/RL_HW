@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 13})
 plt.rcParams['figure.figsize'] = 10, 8
 
+
 def prRed(prt): print("\033[91m {}\033[00m" .format(prt))
 def prGreen(prt): print("\033[92m {}\033[00m" .format(prt))
 def prYellow(prt): print("\033[93m {}\033[00m" .format(prt))
@@ -14,6 +15,7 @@ def prPurple(prt): print("\033[95m {}\033[00m" .format(prt))
 def prCyan(prt): print("\033[96m {}\033[00m" .format(prt))
 def prLightGray(prt): print("\033[97m {}\033[00m" .format(prt))
 def prBlack(prt): print("\033[98m {}\033[00m" .format(prt))
+
 
 def soft_update(target, source, tau=0.001):
     """
@@ -28,6 +30,7 @@ def soft_update(target, source, tau=0.001):
             target_param.data * (1.0 - tau) + param.data * tau
         )
 
+
 def hard_update(target, source):
     """
     update target by target = source
@@ -36,7 +39,8 @@ def hard_update(target, source):
     :return:
     """
     for target_param, param in zip(target.parameters(), source.parameters()):
-            target_param.data.copy_(param.data)
+        target_param.data.copy_(param.data)
+
 
 def get_output_folder(parent_dir, env_name):
     """Return save folder.
@@ -98,6 +102,7 @@ def statistics_plot(x, y, x_name, y_name, title='', filename=None):
 # 'k'	black
 # 'w'	white
 
+
 def time_seq():
     return time.strftime("%Y%m%d%H%M%S", time.localtime())
 
@@ -110,8 +115,9 @@ def get_class_attr(Cls) -> []:
     """
     import re
     return [a for a, v in Cls.__dict__.items()
-              if not re.match('<function.*?>', str(v))
-              and not (a.startswith('__') and a.endswith('__'))]
+            if not re.match('<function.*?>', str(v))
+            and not (a.startswith('__') and a.endswith('__'))]
+
 
 def get_class_attr_val(cls):
     """

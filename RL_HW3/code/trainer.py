@@ -7,6 +7,8 @@ from core.util import get_output_folder
 import time
 import imageio
 from PIL import Image
+
+
 class Trainer:
     def __init__(self, agent, env, config: Config):
         self.agent = agent
@@ -34,10 +36,10 @@ class Trainer:
         start = time.time()
         state = self.env.reset()
         for fr in range(pre_fr + 1, self.config.frames + 1):
-            if fr % self.config.gif_interval >= 1 and fr % self.config.gif_interval<=200:
+            if fr % self.config.gif_interval >= 1 and fr % self.config.gif_interval <= 200:
                 if fr % self.config.gif_interval == 1:
                     frames = []
-                img = state[0, 0:3].transpose(1,2,0).astype('uint8')
+                img = state[0, 0:3].transpose(1, 2, 0).astype('uint8')
                 frames.append(Image.fromarray(img).convert('RGB'))
                 if fr % self.config.gif_interval == 200:
                     imageio.mimsave('record.gif', frames, 'GIF', duration=0.1)
@@ -52,22 +54,22 @@ class Trainer:
             episode_reward += reward
 
             loss = 0
-            if fr > self.config.init_buff and fr % self.config.learning_interval==0:
+            if fr > self.config.init_buff and fr % self.config.learning_interval == 0:
                 loss = self.agent.learning(fr)
                 losses.append(loss)
                 self.board_logger.scalar_summary('Loss per frame', fr, loss)
 
-
             if fr % self.config.print_interval == 0:
                 print(
                     "TIME {}  num timesteps {}, FPS {} \n Loss {:.3f}, avrage reward {:.1f}"
-                        .format(time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - start)),
-                                fr,
-                                int(fr / (time.time() - start)),
-                                loss, np.mean(all_rewards[-10:])))
+                    .format(time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - start)),
+                            fr,
+                            int(fr / (time.time() - start)),
+                            loss, np.mean(all_rewards[-10:])))
 
             if fr % self.config.log_interval == 0:
-                self.board_logger.scalar_summary('Reward per episode', ep_num, all_rewards[-1])
+                self.board_logger.scalar_summary(
+                    'Reward per episode', ep_num, all_rewards[-1])
 
             if self.config.checkpoint and fr % self.config.checkpoint_interval == 0:
                 self.agent.save_checkpoint(fr, self.outputdir)
@@ -78,12 +80,14 @@ class Trainer:
                 episode_reward = 0
                 ep_num += 1
                 avg_reward = float(np.mean(all_rewards[-100:]))
-                self.board_logger.scalar_summary('Best 100-episodes average reward', ep_num, avg_reward)
+                self.board_logger.scalar_summary(
+                    'Best 100-episodes average reward', ep_num, avg_reward)
 
                 if len(all_rewards) >= 100 and avg_reward >= self.config.win_reward and all_rewards[-1] > self.config.win_reward:
                     is_win = True
                     self.agent.save_model(self.outputdir, 'best')
-                    print('Ran %d episodes best 100-episodes average reward is %3f. Solved after %d trials ✔' % (ep_num, avg_reward, ep_num - 100))
+                    print('Ran %d episodes best 100-episodes average reward is %3f. Solved after %d trials ✔' %
+                          (ep_num, avg_reward, ep_num - 100))
                     if self.config.win_break:
                         break
 

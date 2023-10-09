@@ -3,10 +3,13 @@ import numpy as np
 import torch
 from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler, WeightedRandomSampler
 
+
 class RolloutStorage(object):
     def __init__(self, config):
-        self.obs = torch.zeros([config.max_buff,  *config.state_shape], dtype=torch.uint8)
-        self.next_obs = torch.zeros([config.max_buff,  *config.state_shape], dtype=torch.uint8)
+        self.obs = torch.zeros(
+            [config.max_buff,  *config.state_shape], dtype=torch.uint8)
+        self.next_obs = torch.zeros(
+            [config.max_buff,  *config.state_shape], dtype=torch.uint8)
         self.rewards = torch.zeros([config.max_buff,  1])
         self.actions = torch.zeros([config.max_buff, 1])
         self.actions = self.actions.long()
@@ -18,8 +21,10 @@ class RolloutStorage(object):
         self.current_size = 0
 
     def add(self, obs, actions, rewards, next_obs, masks):
-        self.obs[self.step].copy_(torch.tensor(obs[None,:], dtype=torch.uint8).squeeze(0).squeeze(0))
-        self.next_obs[self.step].copy_(torch.tensor(next_obs[None,:], dtype=torch.uint8).squeeze(0).squeeze(0))
+        self.obs[self.step].copy_(torch.tensor(
+            obs[None, :], dtype=torch.uint8).squeeze(0).squeeze(0))
+        self.next_obs[self.step].copy_(torch.tensor(
+            next_obs[None, :], dtype=torch.uint8).squeeze(0).squeeze(0))
         self.actions[self.step].copy_(torch.tensor(actions, dtype=torch.float))
         self.rewards[self.step].copy_(torch.tensor(rewards, dtype=torch.float))
         self.masks[self.step].copy_(torch.tensor(masks, dtype=torch.float))
