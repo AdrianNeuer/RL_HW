@@ -27,7 +27,7 @@ def get_args():
         type=str,
         default='')
 
-    ## other parameter
+    # other parameter
     parser.add_argument(
         '--log-interval',
         type=int,

@@ -3,6 +3,7 @@ import numpy as np
 from abc import abstractmethod
 import tensorflow as tf
 
+
 class QAgent:
     def __init__(self, ):
         pass
@@ -35,6 +36,7 @@ class Model:
     def predict(self, s, a):
         pass
 
+
 class DynaModel(Model):
     def __init__(self, width, height, policy):
         Model.__init__(self, width, height, policy)
@@ -60,14 +62,18 @@ class NetworkModel(Model):
     def __init__(self, width, height, policy):
         Model.__init__(self, width, height, policy)
         self.x_ph = tf.placeholder(dtype=tf.float32, shape=[None, 3], name='x')
-        self.x_next_ph = tf.placeholder(dtype=tf.float32, shape=[None, 3], name='x_next')
+        self.x_next_ph = tf.placeholder(
+            dtype=tf.float32, shape=[None, 3], name='x_next')
         self.a_ph = tf.placeholder(dtype=tf.float32, shape=[None, 1], name='a')
         self.r_ph = tf.placeholder(dtype=tf.float32, shape=[None], name='r')
-        h1 = tf.layers.dense(tf.concat([self.x_ph, self.a_ph], axis=-1), units=256, activation=tf.nn.relu)
+        h1 = tf.layers.dense(
+            tf.concat([self.x_ph, self.a_ph], axis=-1), units=256, activation=tf.nn.relu)
         h2 = tf.layers.dense(h1, units=256, activation=tf.nn.relu)
-        self.next_x = tf.layers.dense(h2, units=3, activation=tf.nn.tanh) * 1.3 + self.x_ph
+        self.next_x = tf.layers.dense(
+            h2, units=3, activation=tf.nn.tanh) * 1.3 + self.x_ph
         self.x_mse = tf.reduce_mean(tf.square(self.next_x - self.x_next_ph))
-        self.opt_x = tf.train.RMSPropOptimizer(learning_rate=1e-5).minimize(self.x_mse)
+        self.opt_x = tf.train.RMSPropOptimizer(
+            learning_rate=1e-5).minimize(self.x_mse)
         gpu_options = tf.GPUOptions(allow_growth=True)
         tf_config = tf.ConfigProto(gpu_options=gpu_options)
         self.sess = tf.Session(config=tf_config)
@@ -117,5 +123,6 @@ class NetworkModel(Model):
         return self.policy.select_action(s)
 
     def predict(self, s, a):
-        s_ = self.sess.run(self.next_x, feed_dict={self.x_ph: [s], self.a_ph: [[a]]})
+        s_ = self.sess.run(self.next_x, feed_dict={
+                           self.x_ph: [s], self.a_ph: [[a]]})
         return self.de_norm_s(s_[0])

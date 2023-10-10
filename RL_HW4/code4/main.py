@@ -12,6 +12,7 @@ import scipy.misc
 
 t = str(time.time())
 
+
 def plot(record, info):
     plt.figure()
     fig, ax = plt.subplots()
@@ -76,7 +77,6 @@ def main():
             dynamics_model.store_transition(obs, action, reward, obs_next)
             obs = obs_next
 
-
             if done:
                 obs = envs.reset()
         if i > start_planning:
@@ -117,11 +117,11 @@ def main():
 
             end = time.time()
             print("TIME {} Updates {}, num timesteps {}, FPS {} \n avrage/min/max reward {:.1f}/{:.1f}/{:.1f}".format(
-                    time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - start)),
-                    i, total_num_steps, int(total_num_steps / (end - start)),
-                    np.mean(reward_episode_set),
-                    np.min(reward_episode_set),
-                    np.max(reward_episode_set)))
+                time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - start)),
+                i, total_num_steps, int(total_num_steps / (end - start)),
+                np.mean(reward_episode_set),
+                np.min(reward_episode_set),
+                np.max(reward_episode_set)))
             record['steps'].append(total_num_steps)
             record['mean'].append(np.mean(reward_episode_set))
             record['max'].append(np.max(reward_episode_set))

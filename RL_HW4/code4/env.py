@@ -52,8 +52,10 @@ class Make_Env(object):
             self.image_door[:, :, :] = [[[0]], [[0]], [[1]]]
             self.image_wall = np.ones((3, self.grid_size, self.grid_size))
             self.image_wall[:] = 0.5
-            self.image_init = np.zeros((3, self.image_size + 2 * self.margin, self.image_size + 2 * self.margin))
-            self.image_init[:, self.margin:(-self.margin), self.margin:(-self.margin)] = 1
+            self.image_init = np.zeros(
+                (3, self.image_size + 2 * self.margin, self.image_size + 2 * self.margin))
+            self.image_init[:, self.margin:(-self.margin),
+                            self.margin:(-self.margin)] = 1
 
         else:
             self.image_man = np.zeros((3, self.grid_size, self.grid_size))
@@ -91,8 +93,10 @@ class Make_Env(object):
             self.image_wall[:, 0:2, 4] = 0.5
             self.image_wall[:, 5:, 4] = 0.5
             self.image_wall[:, 2:5, 0] = 0.5
-            self.image_init = np.zeros((3, self.image_size + 2 * self.margin, self.image_size + 2 * self.margin))
-            self.image_init[:, self.margin:(-self.margin), self.margin:(-self.margin)] = 1
+            self.image_init = np.zeros(
+                (3, self.image_size + 2 * self.margin, self.image_size + 2 * self.margin))
+            self.image_init[:, self.margin:(-self.margin),
+                            self.margin:(-self.margin)] = 1
 
         self.action_set = np.array([[0, 1], [0, -1], [1, 0], [-1, 0]])
         self.length = 0
@@ -108,9 +112,9 @@ class Make_Env(object):
             x = pos // 10
             y = pos % 10
             self.image_init[:,
-            (self.margin + x * self.grid_size):(self.margin + (x + 1) * self.grid_size),
-            (self.margin + y * self.grid_size):(
-                    self.margin + (y + 1) * self.grid_size)] = self.image_wall
+                            (self.margin + x * self.grid_size):(self.margin + (x + 1) * self.grid_size),
+                            (self.margin + y * self.grid_size):(
+                                self.margin + (y + 1) * self.grid_size)] = self.image_wall
 
     # print(self.pos_man, self.pos_key, self.pos_door)
 
@@ -152,18 +156,18 @@ class Make_Env(object):
     def get_ob(self, state=-1):
         observ = self.image_init.copy()
         observ[:,
-        (self.margin + self.pos_man[0] * self.grid_size):(self.margin + (self.pos_man[0] + 1) * self.grid_size),
-        (self.margin + self.pos_man[1] * self.grid_size):(
-                    self.margin + (self.pos_man[1] + 1) * self.grid_size)] = self.image_man
+               (self.margin + self.pos_man[0] * self.grid_size):(self.margin + (self.pos_man[0] + 1) * self.grid_size),
+               (self.margin + self.pos_man[1] * self.grid_size):(
+                   self.margin + (self.pos_man[1] + 1) * self.grid_size)] = self.image_man
         if self.use_key:
             observ[:,
-            (self.margin + self.pos_key[0] * self.grid_size):(self.margin + (self.pos_key[0] + 1) * self.grid_size),
-            (self.margin + self.pos_key[1] * self.grid_size):(
-                        self.margin + (self.pos_key[1] + 1) * self.grid_size)] = self.image_key
+                   (self.margin + self.pos_key[0] * self.grid_size):(self.margin + (self.pos_key[0] + 1) * self.grid_size),
+                   (self.margin + self.pos_key[1] * self.grid_size):(
+                       self.margin + (self.pos_key[1] + 1) * self.grid_size)] = self.image_key
         observ[:,
-        (self.margin + self.pos_door[0] * self.grid_size):(self.margin + (self.pos_door[0] + 1) * self.grid_size),
-        (self.margin + self.pos_door[1] * self.grid_size):(
-                    self.margin + (self.pos_door[1] + 1) * self.grid_size)] = self.image_door
+               (self.margin + self.pos_door[0] * self.grid_size):(self.margin + (self.pos_door[0] + 1) * self.grid_size),
+               (self.margin + self.pos_door[1] * self.grid_size):(
+                   self.margin + (self.pos_door[1] + 1) * self.grid_size)] = self.image_door
         return observ.astype(np.float32)
 
     def get_state(self):
@@ -184,6 +188,7 @@ class Make_Env(object):
         else:
             done = False
         return done
+
     def reset(self):
         self.pos_key = self.pos_key_init
         self.pos_door = self.pos_door_init
