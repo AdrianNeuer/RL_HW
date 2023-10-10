@@ -47,7 +47,7 @@ def main():
     # agent initial
     # you should finish your agent with QAgent
     # e.g. agent = myQAgent()
-    agent = QAgent()
+    agent = Myagent()
     dynamics_model = NetworkModel(8, 8, policy=agent)
     epsilon = 0.2
     alpha = 0.2
@@ -62,6 +62,8 @@ def main():
         # an example of interacting with the environment
         obs = envs.reset()
         obs = obs.astype(int)
+        print(obs)
+        assert 0
         for step in range(args.num_steps):
             # Sample actions with epsilon greedy policy
 

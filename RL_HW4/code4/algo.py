@@ -1,7 +1,8 @@
 import numpy as np
 
 from abc import abstractmethod
-import tensorflow as tf
+import tensorflow._api.v2.compat.v1 as tf
+tf.disable_v2_behavior()
 
 
 class QAgent:
@@ -11,6 +12,32 @@ class QAgent:
     @abstractmethod
     def select_action(self, ob):
         pass
+
+
+class Myagent:
+    def __init__(self, lr=1, gamma=0.99):
+        super(Myagent, self).__init__()
+        self.lr = lr
+        self.gamma = gamma
+        self.Qtable = np.zeros((8, 8, 2, 4))
+
+    def update(self, ob, action, ob_next, reward, done):
+        x, y, key = ob.astype(np.int32)
+        x1, y1, key1 = ob_next.astype(np.int32)
+
+        Q_predict = self.Qtable[x, y, key,  action]
+
+        if done:
+            Q_target = reward
+        else:
+            Q_target = reward + self.gamma * \
+                np.max(self.Qtable[x1, y1, key1, :])
+
+        self.Qtable[x, y, key, action] += self.lr * (Q_target - Q_predict)
+
+    def select_action(self, ob):
+        x, y, key = ob.astype(np.int32)
+        return np.argmax(self.Qtable[x, y, key, :])
 
 
 class Model:
