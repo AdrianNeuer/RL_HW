@@ -3,6 +3,7 @@ import os
 import random
 import torch
 from torch.optim import Adam
+import torch.nn.functional as F
 from tester import Tester
 from buffer import RolloutStorage
 from common.wrappers import make_atari, wrap_deepmind, wrap_pytorch
@@ -18,7 +19,8 @@ class CnnDDQNAgent:
         self.config = config
         self.is_training = True
         self.buffer = RolloutStorage(config)
-        self.model = CnnDQN(self.config.state_shape, self.config.action_dim)
+        self.model = CnnDQN(self.config.state_shape,
+                            self.config.action_dim)
         self.target_model = CnnDQN(
             self.config.state_shape, self.config.action_dim)
         self.target_model.load_state_dict(self.model.state_dict())
@@ -27,6 +29,7 @@ class CnnDDQNAgent:
 
         if self.config.use_cuda:
             self.cuda()
+        self.double = self.config.double
 
     def act(self, state, epsilon=None):
         if epsilon is None:
@@ -43,9 +46,11 @@ class CnnDDQNAgent:
 
     def learning(self, fr):
         s0, s1, a, r, done = self.buffer.sample(self.config.batch_size)
+        s0 = s0.float()/255.0
+        s1 = s1.float()/255.0
         if self.config.use_cuda:
-            s0 = s0.float().to(self.config.device)/255.0
-            s1 = s1.float().to(self.config.device)/255.0
+            s0 = s0.to(self.config.device)
+            s1 = s1.to(self.config.device)
             a = a.to(self.config.device)
             r = r.to(self.config.device)
             done = done.to(self.config.device)
@@ -54,13 +59,23 @@ class CnnDDQNAgent:
         # q_values is a vector with size (batch_size, action_shape, 1)
         # each dimension i represents Q(s0,a_i)
         q_values = self.model(s0).cuda()
+        q_next = self.target_model(s1).cuda()
 
+        q_eval = q_values.gather(1, a)
+
+        if self.double:
+            actions = self.model(s1).cuda().max(1)[1].unsqueeze(-1)
+            q_next = q_next.gather(1, actions)
+            q_target = r + (1. - done) * self.config.gamma * \
+                q_next
         # How to calculate argmax_a Q(s,a)
-        actions = q_values.max(1)[1]
+        else:
+            q_target = r + (1. - done) * self.config.gamma * \
+                q_next.max(1)[0].unsqueeze(-1)
 
         # Tips: function torch.gather may be helpful
         # You need to design how to calculate the loss
-        loss = 0
+        loss = F.mse_loss(q_target, q_eval)
 
         self.model_optim.zero_grad()
         loss.backward()
@@ -119,6 +134,8 @@ if __name__ == '__main__':
                         action='store_true', help='retrain model')
     parser.add_argument('--model_path', type=str,
                         help='if test or retrain, import the model')
+    parser.add_argument('--double', type=bool, default=False,
+                        help='whether Double DQN')
     parser.add_argument(
         '--no-cuda',
         action='store_true',
@@ -150,7 +167,8 @@ if __name__ == '__main__':
     config.checkpoint_interval = 500000
     config.win_reward = 18
     config.win_break = True
-    config.device = torch.device("cuda: "+args.cuda_id if args.cuda else "cpu")
+    config.double = args.double
+    config.device = torch.device("cuda:"+args.cuda_id if args.cuda else "cpu")
     # handle the atari env
     env = make_atari(config.env)
     env = wrap_deepmind(env)
