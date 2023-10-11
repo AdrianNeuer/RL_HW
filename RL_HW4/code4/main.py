@@ -47,16 +47,16 @@ def main():
     # agent initial
     # you should finish your agent with QAgent
     # e.g. agent = myQAgent()
-    dynamics_model = DynaModel(8, 8, policy=agent)
     epsilon = 0.2
     alpha = 0.2
     gamma = 0.99
-    n = 750
+    n = 0
     m = 0
     start_planning = 0
     h = 0
 
     agent = Myagent(alpha, gamma)
+    dynamics_model = DynaModel(8, 8, policy=agent)
 
     # start to train your agent
     for i in range(200):

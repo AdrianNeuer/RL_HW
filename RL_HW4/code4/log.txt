@@ -1,401 +1,401 @@
 4 2
-TIME 00h 00m 00s Updates 0, num timesteps 100, FPS 1089 
+TIME 00h 00m 00s Updates 0, num timesteps 100, FPS 1101 
+ avrage/min/max reward -49.5/-50.0/-40.0
+TIME 00h 00m 00s Updates 1, num timesteps 200, FPS 358 
+ avrage/min/max reward -49.5/-50.0/-40.0
+TIME 00h 00m 00s Updates 2, num timesteps 300, FPS 412 
+ avrage/min/max reward -49.5/-50.0/-40.0
+TIME 00h 00m 00s Updates 3, num timesteps 400, FPS 449 
+ avrage/min/max reward -48.8/-50.0/-40.0
+TIME 00h 00m 01s Updates 4, num timesteps 500, FPS 468 
+ avrage/min/max reward -48.0/-50.0/-40.0
+TIME 00h 00m 01s Updates 5, num timesteps 600, FPS 490 
+ avrage/min/max reward -48.5/-50.0/-40.0
+TIME 00h 00m 01s Updates 6, num timesteps 700, FPS 505 
  avrage/min/max reward -49.8/-50.0/-40.0
-TIME 00h 00m 00s Updates 1, num timesteps 200, FPS 331 
- avrage/min/max reward -46.8/-50.0/-40.0
-TIME 00h 00m 00s Updates 2, num timesteps 300, FPS 378 
- avrage/min/max reward -45.2/-50.0/-40.0
-TIME 00h 00m 00s Updates 3, num timesteps 400, FPS 407 
- avrage/min/max reward -46.0/-50.0/-40.0
-TIME 00h 00m 01s Updates 4, num timesteps 500, FPS 422 
- avrage/min/max reward -47.0/-50.0/-40.0
-TIME 00h 00m 01s Updates 5, num timesteps 600, FPS 441 
- avrage/min/max reward -47.0/-50.0/-40.0
-TIME 00h 00m 01s Updates 6, num timesteps 700, FPS 452 
- avrage/min/max reward -46.0/-50.0/-40.0
-TIME 00h 00m 01s Updates 7, num timesteps 800, FPS 465 
- avrage/min/max reward -44.8/-50.0/-40.0
-TIME 00h 00m 01s Updates 8, num timesteps 900, FPS 472 
- avrage/min/max reward -49.2/-50.0/-40.0
-TIME 00h 00m 02s Updates 9, num timesteps 1000, FPS 479 
+TIME 00h 00m 01s Updates 7, num timesteps 800, FPS 517 
  avrage/min/max reward -50.0/-50.0/-50.0
-TIME 00h 00m 02s Updates 10, num timesteps 1100, FPS 486 
- avrage/min/max reward -1.8/-50.0/100.0
-TIME 00h 00m 02s Updates 11, num timesteps 1200, FPS 491 
- avrage/min/max reward 3.9/-50.0/100.0
-TIME 00h 00m 02s Updates 12, num timesteps 1300, FPS 496 
- avrage/min/max reward -9.0/-50.0/99.0
-TIME 00h 00m 02s Updates 13, num timesteps 1400, FPS 499 
- avrage/min/max reward 29.0/-50.0/100.0
-TIME 00h 00m 02s Updates 14, num timesteps 1500, FPS 502 
+TIME 00h 00m 01s Updates 8, num timesteps 900, FPS 524 
+ avrage/min/max reward -48.8/-50.0/-40.0
+TIME 00h 00m 01s Updates 9, num timesteps 1000, FPS 534 
+ avrage/min/max reward -49.2/-50.0/-40.0
+TIME 00h 00m 02s Updates 10, num timesteps 1100, FPS 542 
+ avrage/min/max reward -48.2/-50.0/-40.0
+TIME 00h 00m 02s Updates 11, num timesteps 1200, FPS 550 
+ avrage/min/max reward -49.8/-50.0/-40.0
+TIME 00h 00m 02s Updates 12, num timesteps 1300, FPS 555 
+ avrage/min/max reward -47.5/-50.0/-40.0
+TIME 00h 00m 02s Updates 13, num timesteps 1400, FPS 560 
+ avrage/min/max reward -47.5/-50.0/-40.0
+TIME 00h 00m 02s Updates 14, num timesteps 1500, FPS 562 
+ avrage/min/max reward -47.2/-50.0/-40.0
+TIME 00h 00m 02s Updates 15, num timesteps 1600, FPS 565 
+ avrage/min/max reward -48.5/-50.0/-40.0
+TIME 00h 00m 02s Updates 16, num timesteps 1700, FPS 568 
+ avrage/min/max reward -48.5/-50.0/-40.0
+TIME 00h 00m 03s Updates 17, num timesteps 1800, FPS 571 
+ avrage/min/max reward -49.2/-50.0/-40.0
+TIME 00h 00m 03s Updates 18, num timesteps 1900, FPS 574 
+ avrage/min/max reward -48.2/-50.0/-40.0
+TIME 00h 00m 03s Updates 19, num timesteps 2000, FPS 575 
+ avrage/min/max reward -47.5/-50.0/-40.0
+TIME 00h 00m 03s Updates 20, num timesteps 2100, FPS 575 
+ avrage/min/max reward -47.8/-50.0/-40.0
+TIME 00h 00m 03s Updates 21, num timesteps 2200, FPS 576 
+ avrage/min/max reward -48.2/-50.0/-40.0
+TIME 00h 00m 03s Updates 22, num timesteps 2300, FPS 578 
+ avrage/min/max reward -48.2/-50.0/-40.0
+TIME 00h 00m 04s Updates 23, num timesteps 2400, FPS 581 
+ avrage/min/max reward -47.5/-50.0/-40.0
+TIME 00h 00m 04s Updates 24, num timesteps 2500, FPS 582 
+ avrage/min/max reward -48.5/-50.0/-40.0
+TIME 00h 00m 04s Updates 25, num timesteps 2600, FPS 583 
+ avrage/min/max reward -47.0/-50.0/-40.0
+TIME 00h 00m 04s Updates 26, num timesteps 2700, FPS 582 
+ avrage/min/max reward -48.0/-50.0/-40.0
+TIME 00h 00m 04s Updates 27, num timesteps 2800, FPS 584 
+ avrage/min/max reward -46.5/-50.0/-40.0
+TIME 00h 00m 04s Updates 28, num timesteps 2900, FPS 586 
  avrage/min/max reward -45.8/-50.0/-40.0
-TIME 00h 00m 03s Updates 15, num timesteps 1600, FPS 505 
- avrage/min/max reward -43.8/-50.0/-40.0
-TIME 00h 00m 03s Updates 16, num timesteps 1700, FPS 506 
- avrage/min/max reward 39.0/-50.0/99.0
-TIME 00h 00m 03s Updates 17, num timesteps 1800, FPS 506 
- avrage/min/max reward 39.7/-50.0/100.0
-TIME 00h 00m 03s Updates 18, num timesteps 1900, FPS 507 
- avrage/min/max reward 46.8/-50.0/100.0
-TIME 00h 00m 03s Updates 19, num timesteps 2000, FPS 507 
- avrage/min/max reward 79.9/-50.0/100.0
-TIME 00h 00m 04s Updates 20, num timesteps 2100, FPS 505 
- avrage/min/max reward 80.2/-50.0/100.0
-TIME 00h 00m 04s Updates 21, num timesteps 2200, FPS 505 
- avrage/min/max reward 83.9/-50.0/100.0
-TIME 00h 00m 04s Updates 22, num timesteps 2300, FPS 505 
- avrage/min/max reward 91.4/-50.0/100.0
-TIME 00h 00m 04s Updates 23, num timesteps 2400, FPS 505 
- avrage/min/max reward 87.8/-50.0/100.0
-TIME 00h 00m 04s Updates 24, num timesteps 2500, FPS 505 
- avrage/min/max reward 92.9/87.0/99.0
-TIME 00h 00m 05s Updates 25, num timesteps 2600, FPS 504 
- avrage/min/max reward 93.3/87.0/100.0
-TIME 00h 00m 05s Updates 26, num timesteps 2700, FPS 504 
- avrage/min/max reward 93.6/87.0/99.0
-TIME 00h 00m 05s Updates 27, num timesteps 2800, FPS 503 
- avrage/min/max reward 93.2/87.0/100.0
-TIME 00h 00m 05s Updates 28, num timesteps 2900, FPS 503 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 05s Updates 29, num timesteps 3000, FPS 502 
- avrage/min/max reward 93.0/87.0/100.0
-TIME 00h 00m 06s Updates 30, num timesteps 3100, FPS 502 
- avrage/min/max reward 92.7/87.0/100.0
-TIME 00h 00m 06s Updates 31, num timesteps 3200, FPS 501 
- avrage/min/max reward 93.2/87.0/100.0
-TIME 00h 00m 06s Updates 32, num timesteps 3300, FPS 500 
- avrage/min/max reward 92.8/87.0/100.0
-TIME 00h 00m 06s Updates 33, num timesteps 3400, FPS 500 
- avrage/min/max reward 93.2/87.0/100.0
-TIME 00h 00m 07s Updates 34, num timesteps 3500, FPS 499 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 07s Updates 35, num timesteps 3600, FPS 498 
+TIME 00h 00m 05s Updates 29, num timesteps 3000, FPS 587 
+ avrage/min/max reward -46.0/-50.0/-40.0
+TIME 00h 00m 05s Updates 30, num timesteps 3100, FPS 587 
+ avrage/min/max reward -47.5/-50.0/-40.0
+TIME 00h 00m 05s Updates 31, num timesteps 3200, FPS 588 
+ avrage/min/max reward -47.0/-50.0/-40.0
+TIME 00h 00m 05s Updates 32, num timesteps 3300, FPS 588 
+ avrage/min/max reward -46.8/-50.0/-40.0
+TIME 00h 00m 05s Updates 33, num timesteps 3400, FPS 589 
+ avrage/min/max reward -46.8/-50.0/-40.0
+TIME 00h 00m 05s Updates 34, num timesteps 3500, FPS 590 
+ avrage/min/max reward -46.8/-50.0/-40.0
+TIME 00h 00m 06s Updates 35, num timesteps 3600, FPS 591 
+ avrage/min/max reward -46.2/-50.0/-40.0
+TIME 00h 00m 06s Updates 36, num timesteps 3700, FPS 592 
+ avrage/min/max reward -45.5/-50.0/-40.0
+TIME 00h 00m 06s Updates 37, num timesteps 3800, FPS 593 
+ avrage/min/max reward -44.8/-50.0/-40.0
+TIME 00h 00m 06s Updates 38, num timesteps 3900, FPS 593 
+ avrage/min/max reward -46.0/-50.0/-40.0
+TIME 00h 00m 06s Updates 39, num timesteps 4000, FPS 593 
+ avrage/min/max reward -45.2/-50.0/-40.0
+TIME 00h 00m 06s Updates 40, num timesteps 4100, FPS 593 
+ avrage/min/max reward 14.6/-50.0/99.0
+TIME 00h 00m 07s Updates 41, num timesteps 4200, FPS 594 
+ avrage/min/max reward -45.5/-50.0/-40.0
+TIME 00h 00m 07s Updates 42, num timesteps 4300, FPS 595 
+ avrage/min/max reward -44.8/-50.0/-40.0
+TIME 00h 00m 07s Updates 43, num timesteps 4400, FPS 595 
+ avrage/min/max reward 36.9/-50.0/100.0
+TIME 00h 00m 07s Updates 44, num timesteps 4500, FPS 595 
+ avrage/min/max reward 32.9/-50.0/100.0
+TIME 00h 00m 07s Updates 45, num timesteps 4600, FPS 595 
+ avrage/min/max reward 31.9/-50.0/100.0
+TIME 00h 00m 07s Updates 46, num timesteps 4700, FPS 595 
+ avrage/min/max reward 26.5/-50.0/100.0
+TIME 00h 00m 08s Updates 47, num timesteps 4800, FPS 595 
+ avrage/min/max reward 61.5/-50.0/100.0
+TIME 00h 00m 08s Updates 48, num timesteps 4900, FPS 595 
+ avrage/min/max reward 50.6/-50.0/100.0
+TIME 00h 00m 08s Updates 49, num timesteps 5000, FPS 594 
+ avrage/min/max reward 31.6/-50.0/100.0
+TIME 00h 00m 08s Updates 50, num timesteps 5100, FPS 594 
+ avrage/min/max reward 48.3/-50.0/100.0
+TIME 00h 00m 08s Updates 51, num timesteps 5200, FPS 582 
+ avrage/min/max reward 41.7/-50.0/100.0
+TIME 00h 00m 09s Updates 52, num timesteps 5300, FPS 582 
+ avrage/min/max reward 59.1/-50.0/100.0
+TIME 00h 00m 09s Updates 53, num timesteps 5400, FPS 582 
+ avrage/min/max reward 69.8/-50.0/100.0
+TIME 00h 00m 09s Updates 54, num timesteps 5500, FPS 581 
+ avrage/min/max reward 56.5/-50.0/100.0
+TIME 00h 00m 09s Updates 55, num timesteps 5600, FPS 581 
+ avrage/min/max reward 48.7/-50.0/100.0
+TIME 00h 00m 09s Updates 56, num timesteps 5700, FPS 581 
+ avrage/min/max reward 55.1/-50.0/100.0
+TIME 00h 00m 09s Updates 57, num timesteps 5800, FPS 582 
+ avrage/min/max reward 28.5/-50.0/100.0
+TIME 00h 00m 10s Updates 58, num timesteps 5900, FPS 582 
+ avrage/min/max reward 39.2/-50.0/100.0
+TIME 00h 00m 10s Updates 59, num timesteps 6000, FPS 581 
+ avrage/min/max reward 59.3/-50.0/100.0
+TIME 00h 00m 10s Updates 60, num timesteps 6100, FPS 581 
+ avrage/min/max reward 42.6/-50.0/100.0
+TIME 00h 00m 10s Updates 61, num timesteps 6200, FPS 581 
+ avrage/min/max reward 54.9/-50.0/100.0
+TIME 00h 00m 10s Updates 62, num timesteps 6300, FPS 581 
+ avrage/min/max reward 67.2/-50.0/100.0
+TIME 00h 00m 11s Updates 63, num timesteps 6400, FPS 581 
+ avrage/min/max reward 62.5/-50.0/99.0
+TIME 00h 00m 11s Updates 64, num timesteps 6500, FPS 580 
+ avrage/min/max reward 62.8/-50.0/100.0
+TIME 00h 00m 11s Updates 65, num timesteps 6600, FPS 580 
+ avrage/min/max reward 66.0/-50.0/100.0
+TIME 00h 00m 11s Updates 66, num timesteps 6700, FPS 580 
+ avrage/min/max reward 59.4/-50.0/100.0
+TIME 00h 00m 11s Updates 67, num timesteps 6800, FPS 579 
+ avrage/min/max reward 62.3/-50.0/100.0
+TIME 00h 00m 11s Updates 68, num timesteps 6900, FPS 579 
+ avrage/min/max reward 72.8/-50.0/100.0
+TIME 00h 00m 12s Updates 69, num timesteps 7000, FPS 578 
+ avrage/min/max reward 82.7/-50.0/100.0
+TIME 00h 00m 12s Updates 70, num timesteps 7100, FPS 578 
+ avrage/min/max reward 68.0/-50.0/100.0
+TIME 00h 00m 12s Updates 71, num timesteps 7200, FPS 577 
+ avrage/min/max reward 82.1/-50.0/100.0
+TIME 00h 00m 12s Updates 72, num timesteps 7300, FPS 577 
+ avrage/min/max reward 77.2/-50.0/100.0
+TIME 00h 00m 12s Updates 73, num timesteps 7400, FPS 576 
+ avrage/min/max reward 77.1/-50.0/100.0
+TIME 00h 00m 13s Updates 74, num timesteps 7500, FPS 576 
+ avrage/min/max reward 85.4/-50.0/100.0
+TIME 00h 00m 13s Updates 75, num timesteps 7600, FPS 575 
+ avrage/min/max reward 82.9/-50.0/100.0
+TIME 00h 00m 13s Updates 76, num timesteps 7700, FPS 575 
+ avrage/min/max reward 76.9/-50.0/100.0
+TIME 00h 00m 13s Updates 77, num timesteps 7800, FPS 574 
+ avrage/min/max reward 70.8/-50.0/100.0
+TIME 00h 00m 13s Updates 78, num timesteps 7900, FPS 574 
+ avrage/min/max reward 75.8/-50.0/100.0
+TIME 00h 00m 13s Updates 79, num timesteps 8000, FPS 573 
+ avrage/min/max reward 89.6/-50.0/100.0
+TIME 00h 00m 14s Updates 80, num timesteps 8100, FPS 573 
+ avrage/min/max reward 77.9/-50.0/100.0
+TIME 00h 00m 14s Updates 81, num timesteps 8200, FPS 572 
+ avrage/min/max reward 88.8/-50.0/100.0
+TIME 00h 00m 14s Updates 82, num timesteps 8300, FPS 572 
+ avrage/min/max reward 82.6/-50.0/100.0
+TIME 00h 00m 14s Updates 83, num timesteps 8400, FPS 572 
+ avrage/min/max reward 79.0/-50.0/100.0
+TIME 00h 00m 14s Updates 84, num timesteps 8500, FPS 572 
+ avrage/min/max reward 89.5/-50.0/100.0
+TIME 00h 00m 15s Updates 85, num timesteps 8600, FPS 571 
+ avrage/min/max reward 86.9/-50.0/100.0
+TIME 00h 00m 15s Updates 86, num timesteps 8700, FPS 571 
+ avrage/min/max reward 80.3/-50.0/100.0
+TIME 00h 00m 15s Updates 87, num timesteps 8800, FPS 571 
+ avrage/min/max reward 84.9/-50.0/100.0
+TIME 00h 00m 15s Updates 88, num timesteps 8900, FPS 571 
+ avrage/min/max reward 81.0/-50.0/100.0
+TIME 00h 00m 15s Updates 89, num timesteps 9000, FPS 571 
+ avrage/min/max reward 83.0/-50.0/100.0
+TIME 00h 00m 15s Updates 90, num timesteps 9100, FPS 571 
+ avrage/min/max reward 76.5/-50.0/100.0
+TIME 00h 00m 16s Updates 91, num timesteps 9200, FPS 571 
+ avrage/min/max reward 76.4/-50.0/100.0
+TIME 00h 00m 16s Updates 92, num timesteps 9300, FPS 570 
+ avrage/min/max reward 85.1/-50.0/100.0
+TIME 00h 00m 16s Updates 93, num timesteps 9400, FPS 570 
+ avrage/min/max reward 86.1/-50.0/100.0
+TIME 00h 00m 16s Updates 94, num timesteps 9500, FPS 570 
+ avrage/min/max reward 90.1/-50.0/100.0
+TIME 00h 00m 16s Updates 95, num timesteps 9600, FPS 570 
+ avrage/min/max reward 89.2/-50.0/100.0
+TIME 00h 00m 17s Updates 96, num timesteps 9700, FPS 569 
+ avrage/min/max reward 89.7/-50.0/100.0
+TIME 00h 00m 17s Updates 97, num timesteps 9800, FPS 563 
+ avrage/min/max reward 86.0/-50.0/100.0
+TIME 00h 00m 17s Updates 98, num timesteps 9900, FPS 563 
+ avrage/min/max reward 86.2/-50.0/100.0
+TIME 00h 00m 17s Updates 99, num timesteps 10000, FPS 562 
+ avrage/min/max reward 86.3/-50.0/100.0
+TIME 00h 00m 17s Updates 100, num timesteps 10100, FPS 562 
+ avrage/min/max reward 90.3/-50.0/100.0
+TIME 00h 00m 18s Updates 101, num timesteps 10200, FPS 562 
+ avrage/min/max reward 86.4/-50.0/100.0
+TIME 00h 00m 18s Updates 102, num timesteps 10300, FPS 562 
+ avrage/min/max reward 90.1/-50.0/100.0
+TIME 00h 00m 18s Updates 103, num timesteps 10400, FPS 561 
+ avrage/min/max reward 90.0/-50.0/100.0
+TIME 00h 00m 18s Updates 104, num timesteps 10500, FPS 561 
+ avrage/min/max reward 87.4/-50.0/100.0
+TIME 00h 00m 18s Updates 105, num timesteps 10600, FPS 561 
+ avrage/min/max reward 91.7/-50.0/100.0
+TIME 00h 00m 19s Updates 106, num timesteps 10700, FPS 561 
+ avrage/min/max reward 88.9/-50.0/100.0
+TIME 00h 00m 19s Updates 107, num timesteps 10800, FPS 561 
+ avrage/min/max reward 89.7/-50.0/100.0
+TIME 00h 00m 19s Updates 108, num timesteps 10900, FPS 560 
  avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 07s Updates 36, num timesteps 3700, FPS 498 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 07s Updates 37, num timesteps 3800, FPS 497 
+TIME 00h 00m 19s Updates 109, num timesteps 11000, FPS 560 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 19s Updates 110, num timesteps 11100, FPS 560 
+ avrage/min/max reward 93.2/87.0/100.0
+TIME 00h 00m 20s Updates 111, num timesteps 11200, FPS 559 
+ avrage/min/max reward 94.1/87.0/100.0
+TIME 00h 00m 20s Updates 112, num timesteps 11300, FPS 559 
+ avrage/min/max reward 94.3/87.0/100.0
+TIME 00h 00m 20s Updates 113, num timesteps 11400, FPS 559 
  avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 07s Updates 38, num timesteps 3900, FPS 497 
+TIME 00h 00m 20s Updates 114, num timesteps 11500, FPS 559 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 20s Updates 115, num timesteps 11600, FPS 558 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 20s Updates 116, num timesteps 11700, FPS 558 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 21s Updates 117, num timesteps 11800, FPS 558 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 21s Updates 118, num timesteps 11900, FPS 558 
+ avrage/min/max reward 94.2/87.0/100.0
+TIME 00h 00m 21s Updates 119, num timesteps 12000, FPS 557 
  avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 08s Updates 39, num timesteps 4000, FPS 496 
- avrage/min/max reward 94.1/88.0/100.0
-TIME 00h 00m 08s Updates 40, num timesteps 4100, FPS 495 
+TIME 00h 00m 21s Updates 120, num timesteps 12100, FPS 557 
  avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 08s Updates 41, num timesteps 4200, FPS 495 
+TIME 00h 00m 21s Updates 121, num timesteps 12200, FPS 557 
+ avrage/min/max reward 93.9/87.0/100.0
+TIME 00h 00m 22s Updates 122, num timesteps 12300, FPS 556 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 22s Updates 123, num timesteps 12400, FPS 556 
+ avrage/min/max reward 93.8/88.0/100.0
+TIME 00h 00m 22s Updates 124, num timesteps 12500, FPS 556 
+ avrage/min/max reward 93.2/87.0/100.0
+TIME 00h 00m 22s Updates 125, num timesteps 12600, FPS 556 
  avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 08s Updates 42, num timesteps 4300, FPS 495 
+TIME 00h 00m 22s Updates 126, num timesteps 12700, FPS 556 
+ avrage/min/max reward 93.5/87.0/100.0
+TIME 00h 00m 23s Updates 127, num timesteps 12800, FPS 555 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 23s Updates 128, num timesteps 12900, FPS 555 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 23s Updates 129, num timesteps 13000, FPS 555 
  avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 08s Updates 43, num timesteps 4400, FPS 495 
+TIME 00h 00m 23s Updates 130, num timesteps 13100, FPS 555 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 23s Updates 131, num timesteps 13200, FPS 554 
+ avrage/min/max reward 93.8/88.0/100.0
+TIME 00h 00m 23s Updates 132, num timesteps 13300, FPS 554 
  avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 09s Updates 44, num timesteps 4500, FPS 495 
+TIME 00h 00m 24s Updates 133, num timesteps 13400, FPS 554 
+ avrage/min/max reward 94.1/87.0/100.0
+TIME 00h 00m 24s Updates 134, num timesteps 13500, FPS 554 
+ avrage/min/max reward 94.2/87.0/100.0
+TIME 00h 00m 24s Updates 135, num timesteps 13600, FPS 554 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 24s Updates 136, num timesteps 13700, FPS 553 
+ avrage/min/max reward 94.1/87.0/100.0
+TIME 00h 00m 24s Updates 137, num timesteps 13800, FPS 553 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 25s Updates 138, num timesteps 13900, FPS 553 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 25s Updates 139, num timesteps 14000, FPS 553 
+ avrage/min/max reward 94.2/87.0/100.0
+TIME 00h 00m 25s Updates 140, num timesteps 14100, FPS 552 
+ avrage/min/max reward 94.2/87.0/100.0
+TIME 00h 00m 25s Updates 141, num timesteps 14200, FPS 552 
  avrage/min/max reward 94.4/87.0/100.0
-TIME 00h 00m 09s Updates 45, num timesteps 4600, FPS 495 
+TIME 00h 00m 25s Updates 142, num timesteps 14300, FPS 552 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 26s Updates 143, num timesteps 14400, FPS 552 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 26s Updates 144, num timesteps 14500, FPS 551 
  avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 09s Updates 46, num timesteps 4700, FPS 495 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 09s Updates 47, num timesteps 4800, FPS 495 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 09s Updates 48, num timesteps 4900, FPS 495 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 10s Updates 49, num timesteps 5000, FPS 486 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 10s Updates 50, num timesteps 5100, FPS 486 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 10s Updates 51, num timesteps 5200, FPS 486 
- avrage/min/max reward 93.3/87.0/100.0
-TIME 00h 00m 10s Updates 52, num timesteps 5300, FPS 485 
+TIME 00h 00m 26s Updates 145, num timesteps 14600, FPS 547 
  avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 11s Updates 53, num timesteps 5400, FPS 486 
+TIME 00h 00m 26s Updates 146, num timesteps 14700, FPS 547 
  avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 11s Updates 54, num timesteps 5500, FPS 485 
- avrage/min/max reward 93.8/89.0/100.0
-TIME 00h 00m 11s Updates 55, num timesteps 5600, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 11s Updates 56, num timesteps 5700, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 11s Updates 57, num timesteps 5800, FPS 485 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 12s Updates 58, num timesteps 5900, FPS 484 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 12s Updates 59, num timesteps 6000, FPS 484 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 12s Updates 60, num timesteps 6100, FPS 484 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 12s Updates 61, num timesteps 6200, FPS 484 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 12s Updates 62, num timesteps 6300, FPS 484 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 13s Updates 63, num timesteps 6400, FPS 484 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 13s Updates 64, num timesteps 6500, FPS 484 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 13s Updates 65, num timesteps 6600, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 13s Updates 66, num timesteps 6700, FPS 484 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 14s Updates 67, num timesteps 6800, FPS 485 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 14s Updates 68, num timesteps 6900, FPS 485 
- avrage/min/max reward 94.2/88.0/100.0
-TIME 00h 00m 14s Updates 69, num timesteps 7000, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 14s Updates 70, num timesteps 7100, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 14s Updates 71, num timesteps 7200, FPS 484 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 15s Updates 72, num timesteps 7300, FPS 484 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 15s Updates 73, num timesteps 7400, FPS 484 
- avrage/min/max reward 94.1/88.0/100.0
-TIME 00h 00m 15s Updates 74, num timesteps 7500, FPS 484 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 15s Updates 75, num timesteps 7600, FPS 484 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 15s Updates 76, num timesteps 7700, FPS 484 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 16s Updates 77, num timesteps 7800, FPS 484 
- avrage/min/max reward 93.7/88.0/100.0
-TIME 00h 00m 16s Updates 78, num timesteps 7900, FPS 484 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 16s Updates 79, num timesteps 8000, FPS 484 
- avrage/min/max reward 93.9/88.0/100.0
-TIME 00h 00m 16s Updates 80, num timesteps 8100, FPS 484 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 16s Updates 81, num timesteps 8200, FPS 484 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 17s Updates 82, num timesteps 8300, FPS 485 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 17s Updates 83, num timesteps 8400, FPS 485 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 17s Updates 84, num timesteps 8500, FPS 485 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 17s Updates 85, num timesteps 8600, FPS 485 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 17s Updates 86, num timesteps 8700, FPS 485 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 18s Updates 87, num timesteps 8800, FPS 486 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 18s Updates 88, num timesteps 8900, FPS 486 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 18s Updates 89, num timesteps 9000, FPS 486 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 18s Updates 90, num timesteps 9100, FPS 486 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 18s Updates 91, num timesteps 9200, FPS 487 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 19s Updates 92, num timesteps 9300, FPS 487 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 19s Updates 93, num timesteps 9400, FPS 487 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 19s Updates 94, num timesteps 9500, FPS 487 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 19s Updates 95, num timesteps 9600, FPS 487 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 19s Updates 96, num timesteps 9700, FPS 487 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 20s Updates 97, num timesteps 9800, FPS 483 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 20s Updates 98, num timesteps 9900, FPS 483 
- avrage/min/max reward 93.5/88.0/100.0
-TIME 00h 00m 20s Updates 99, num timesteps 10000, FPS 483 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 20s Updates 100, num timesteps 10100, FPS 483 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 21s Updates 101, num timesteps 10200, FPS 483 
- avrage/min/max reward 94.0/89.0/100.0
-TIME 00h 00m 21s Updates 102, num timesteps 10300, FPS 483 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 21s Updates 103, num timesteps 10400, FPS 483 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 21s Updates 104, num timesteps 10500, FPS 483 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 21s Updates 105, num timesteps 10600, FPS 484 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 22s Updates 106, num timesteps 10700, FPS 484 
- avrage/min/max reward 93.6/88.0/100.0
-TIME 00h 00m 22s Updates 107, num timesteps 10800, FPS 484 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 22s Updates 108, num timesteps 10900, FPS 484 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 22s Updates 109, num timesteps 11000, FPS 484 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 22s Updates 110, num timesteps 11100, FPS 484 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 23s Updates 111, num timesteps 11200, FPS 484 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 23s Updates 112, num timesteps 11300, FPS 484 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 23s Updates 113, num timesteps 11400, FPS 484 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 23s Updates 114, num timesteps 11500, FPS 484 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 23s Updates 115, num timesteps 11600, FPS 484 
- avrage/min/max reward 94.5/87.0/100.0
-TIME 00h 00m 24s Updates 116, num timesteps 11700, FPS 484 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 24s Updates 117, num timesteps 11800, FPS 484 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 24s Updates 118, num timesteps 11900, FPS 484 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 24s Updates 119, num timesteps 12000, FPS 484 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 24s Updates 120, num timesteps 12100, FPS 485 
- avrage/min/max reward 93.3/87.0/100.0
-TIME 00h 00m 25s Updates 121, num timesteps 12200, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 25s Updates 122, num timesteps 12300, FPS 485 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 25s Updates 123, num timesteps 12400, FPS 485 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 25s Updates 124, num timesteps 12500, FPS 485 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 25s Updates 125, num timesteps 12600, FPS 485 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 26s Updates 126, num timesteps 12700, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 26s Updates 127, num timesteps 12800, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 26s Updates 128, num timesteps 12900, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 26s Updates 129, num timesteps 13000, FPS 485 
- avrage/min/max reward 94.3/87.0/100.0
-TIME 00h 00m 26s Updates 130, num timesteps 13100, FPS 485 
- avrage/min/max reward 93.9/88.0/100.0
-TIME 00h 00m 27s Updates 131, num timesteps 13200, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 27s Updates 132, num timesteps 13300, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 27s Updates 133, num timesteps 13400, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 27s Updates 134, num timesteps 13500, FPS 485 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 28s Updates 135, num timesteps 13600, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 28s Updates 136, num timesteps 13700, FPS 485 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 28s Updates 137, num timesteps 13800, FPS 485 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 28s Updates 138, num timesteps 13900, FPS 485 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 28s Updates 139, num timesteps 14000, FPS 485 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 29s Updates 140, num timesteps 14100, FPS 485 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 29s Updates 141, num timesteps 14200, FPS 485 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 29s Updates 142, num timesteps 14300, FPS 485 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 29s Updates 143, num timesteps 14400, FPS 485 
- avrage/min/max reward 94.5/87.0/100.0
-TIME 00h 00m 29s Updates 144, num timesteps 14500, FPS 485 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 30s Updates 145, num timesteps 14600, FPS 482 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 30s Updates 146, num timesteps 14700, FPS 482 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 30s Updates 147, num timesteps 14800, FPS 482 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 30s Updates 148, num timesteps 14900, FPS 482 
- avrage/min/max reward 93.3/87.0/100.0
-TIME 00h 00m 31s Updates 149, num timesteps 15000, FPS 481 
- avrage/min/max reward 93.7/88.0/100.0
-TIME 00h 00m 31s Updates 150, num timesteps 15100, FPS 481 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 31s Updates 151, num timesteps 15200, FPS 481 
- avrage/min/max reward 93.3/87.0/100.0
-TIME 00h 00m 31s Updates 152, num timesteps 15300, FPS 481 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 31s Updates 153, num timesteps 15400, FPS 481 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 32s Updates 154, num timesteps 15500, FPS 481 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 32s Updates 155, num timesteps 15600, FPS 481 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 32s Updates 156, num timesteps 15700, FPS 481 
- avrage/min/max reward 93.5/87.0/100.0
-TIME 00h 00m 32s Updates 157, num timesteps 15800, FPS 481 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 33s Updates 158, num timesteps 15900, FPS 481 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 33s Updates 159, num timesteps 16000, FPS 481 
- avrage/min/max reward 93.6/87.0/100.0
-TIME 00h 00m 33s Updates 160, num timesteps 16100, FPS 480 
+TIME 00h 00m 27s Updates 147, num timesteps 14800, FPS 547 
  avrage/min/max reward 94.4/87.0/100.0
-TIME 00h 00m 33s Updates 161, num timesteps 16200, FPS 480 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 33s Updates 162, num timesteps 16300, FPS 480 
- avrage/min/max reward 93.2/87.0/100.0
-TIME 00h 00m 34s Updates 163, num timesteps 16400, FPS 480 
- avrage/min/max reward 94.3/87.0/100.0
-TIME 00h 00m 34s Updates 164, num timesteps 16500, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 34s Updates 165, num timesteps 16600, FPS 480 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 34s Updates 166, num timesteps 16700, FPS 480 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 34s Updates 167, num timesteps 16800, FPS 480 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 35s Updates 168, num timesteps 16900, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 35s Updates 169, num timesteps 17000, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 35s Updates 170, num timesteps 17100, FPS 480 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 35s Updates 171, num timesteps 17200, FPS 480 
+TIME 00h 00m 27s Updates 148, num timesteps 14900, FPS 547 
  avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 36s Updates 172, num timesteps 17300, FPS 480 
+TIME 00h 00m 27s Updates 149, num timesteps 15000, FPS 546 
+ avrage/min/max reward 93.3/87.0/100.0
+TIME 00h 00m 27s Updates 150, num timesteps 15100, FPS 546 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 27s Updates 151, num timesteps 15200, FPS 546 
  avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 36s Updates 173, num timesteps 17400, FPS 480 
- avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 36s Updates 174, num timesteps 17500, FPS 480 
- avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 36s Updates 175, num timesteps 17600, FPS 480 
+TIME 00h 00m 28s Updates 152, num timesteps 15300, FPS 546 
+ avrage/min/max reward 93.5/87.0/100.0
+TIME 00h 00m 28s Updates 153, num timesteps 15400, FPS 546 
+ avrage/min/max reward 93.5/87.0/100.0
+TIME 00h 00m 28s Updates 154, num timesteps 15500, FPS 545 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 28s Updates 155, num timesteps 15600, FPS 545 
  avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 36s Updates 176, num timesteps 17700, FPS 480 
+TIME 00h 00m 28s Updates 156, num timesteps 15700, FPS 545 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 28s Updates 157, num timesteps 15800, FPS 545 
+ avrage/min/max reward 94.1/87.0/100.0
+TIME 00h 00m 29s Updates 158, num timesteps 15900, FPS 545 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 29s Updates 159, num timesteps 16000, FPS 544 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 29s Updates 160, num timesteps 16100, FPS 544 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 29s Updates 161, num timesteps 16200, FPS 544 
+ avrage/min/max reward 93.9/87.0/100.0
+TIME 00h 00m 29s Updates 162, num timesteps 16300, FPS 543 
+ avrage/min/max reward 93.9/87.0/100.0
+TIME 00h 00m 30s Updates 163, num timesteps 16400, FPS 543 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 30s Updates 164, num timesteps 16500, FPS 543 
+ avrage/min/max reward 94.1/87.0/100.0
+TIME 00h 00m 30s Updates 165, num timesteps 16600, FPS 543 
  avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 37s Updates 177, num timesteps 17800, FPS 480 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 37s Updates 178, num timesteps 17900, FPS 480 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 37s Updates 179, num timesteps 18000, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 37s Updates 180, num timesteps 18100, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 37s Updates 181, num timesteps 18200, FPS 480 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 38s Updates 182, num timesteps 18300, FPS 480 
- avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 38s Updates 183, num timesteps 18400, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 38s Updates 184, num timesteps 18500, FPS 480 
+TIME 00h 00m 30s Updates 166, num timesteps 16700, FPS 543 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 30s Updates 167, num timesteps 16800, FPS 543 
  avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 38s Updates 185, num timesteps 18600, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 38s Updates 186, num timesteps 18700, FPS 480 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 39s Updates 187, num timesteps 18800, FPS 480 
+TIME 00h 00m 31s Updates 168, num timesteps 16900, FPS 542 
  avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 39s Updates 188, num timesteps 18900, FPS 478 
+TIME 00h 00m 31s Updates 169, num timesteps 17000, FPS 542 
  avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 39s Updates 189, num timesteps 19000, FPS 478 
- avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 39s Updates 190, num timesteps 19100, FPS 478 
+TIME 00h 00m 31s Updates 170, num timesteps 17100, FPS 542 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 31s Updates 171, num timesteps 17200, FPS 542 
+ avrage/min/max reward 93.5/87.0/100.0
+TIME 00h 00m 31s Updates 172, num timesteps 17300, FPS 542 
+ avrage/min/max reward 94.1/87.0/100.0
+TIME 00h 00m 32s Updates 173, num timesteps 17400, FPS 542 
  avrage/min/max reward 93.7/87.0/100.0
-TIME 00h 00m 40s Updates 191, num timesteps 19200, FPS 478 
+TIME 00h 00m 32s Updates 174, num timesteps 17500, FPS 542 
  avrage/min/max reward 94.2/87.0/100.0
-TIME 00h 00m 40s Updates 192, num timesteps 19300, FPS 478 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 40s Updates 193, num timesteps 19400, FPS 478 
- avrage/min/max reward 93.8/87.0/100.0
-TIME 00h 00m 40s Updates 194, num timesteps 19500, FPS 478 
- avrage/min/max reward 93.4/87.0/100.0
-TIME 00h 00m 40s Updates 195, num timesteps 19600, FPS 478 
+TIME 00h 00m 32s Updates 175, num timesteps 17600, FPS 542 
  avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 41s Updates 196, num timesteps 19700, FPS 478 
+TIME 00h 00m 32s Updates 176, num timesteps 17700, FPS 542 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 32s Updates 177, num timesteps 17800, FPS 541 
  avrage/min/max reward 93.9/87.0/100.0
-TIME 00h 00m 41s Updates 197, num timesteps 19800, FPS 478 
- avrage/min/max reward 94.1/87.0/100.0
-TIME 00h 00m 41s Updates 198, num timesteps 19900, FPS 478 
+TIME 00h 00m 33s Updates 178, num timesteps 17900, FPS 541 
  avrage/min/max reward 94.0/87.0/100.0
-TIME 00h 00m 41s Updates 199, num timesteps 20000, FPS 478 
- avrage/min/max reward 94.3/87.0/100.0
+TIME 00h 00m 33s Updates 179, num timesteps 18000, FPS 541 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 33s Updates 180, num timesteps 18100, FPS 541 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 33s Updates 181, num timesteps 18200, FPS 541 
+ avrage/min/max reward 93.9/87.0/100.0
+TIME 00h 00m 33s Updates 182, num timesteps 18300, FPS 541 
+ avrage/min/max reward 93.8/87.0/100.0
+TIME 00h 00m 33s Updates 183, num timesteps 18400, FPS 541 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 34s Updates 184, num timesteps 18500, FPS 541 
+ avrage/min/max reward 93.9/87.0/100.0
+TIME 00h 00m 34s Updates 185, num timesteps 18600, FPS 541 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 34s Updates 186, num timesteps 18700, FPS 541 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 34s Updates 187, num timesteps 18800, FPS 541 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 34s Updates 188, num timesteps 18900, FPS 540 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 35s Updates 189, num timesteps 19000, FPS 540 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 35s Updates 190, num timesteps 19100, FPS 537 
+ avrage/min/max reward 93.9/87.0/100.0
+TIME 00h 00m 35s Updates 191, num timesteps 19200, FPS 537 
+ avrage/min/max reward 93.4/87.0/100.0
+TIME 00h 00m 35s Updates 192, num timesteps 19300, FPS 537 
+ avrage/min/max reward 94.0/87.0/100.0
+TIME 00h 00m 36s Updates 193, num timesteps 19400, FPS 537 
+ avrage/min/max reward 94.4/87.0/100.0
+TIME 00h 00m 36s Updates 194, num timesteps 19500, FPS 537 
+ avrage/min/max reward 93.7/87.0/100.0
+TIME 00h 00m 36s Updates 195, num timesteps 19600, FPS 536 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 36s Updates 196, num timesteps 19700, FPS 536 
+ avrage/min/max reward 94.1/88.0/100.0
+TIME 00h 00m 36s Updates 197, num timesteps 19800, FPS 536 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 37s Updates 198, num timesteps 19900, FPS 536 
+ avrage/min/max reward 93.6/87.0/100.0
+TIME 00h 00m 37s Updates 199, num timesteps 20000, FPS 536 
+ avrage/min/max reward 93.5/87.0/100.0
