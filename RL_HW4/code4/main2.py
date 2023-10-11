@@ -47,22 +47,23 @@ def main():
     # agent initial
     # you should finish your agent with QAgent
     # e.g. agent = myQAgent()
-    dynamics_model = DynaModel(8, 8, policy=agent)
+    agent = Myagent()
+    dynamics_model = NetworkModel(8, 8, policy=agent)
     epsilon = 0.2
     alpha = 0.2
     gamma = 0.99
-    n = 750
+    n = 0
     m = 0
     start_planning = 0
     h = 0
 
-    agent = Myagent(alpha, gamma)
-
     # start to train your agent
-    for i in range(200):
+    for i in range(num_updates * 10):
         # an example of interacting with the environment
         obs = envs.reset()
         obs = obs.astype(int)
+        print(obs)
+        assert 0
         for step in range(args.num_steps):
             # Sample actions with epsilon greedy policy
 
@@ -85,19 +86,20 @@ def main():
                 obs = envs.reset()
         if i > start_planning:
             for _ in range(n):
-                s = dynamics_model.sample_state()
+                s, idx = dynamics_model.sample_state()
                 # buf_tuple = dynamics_model.buffer[idx]
-                a = dynamics_model.sample_action(s)
-                s_ = dynamics_model.predict(s, a)
-                r = envs.R(s, a, s_)
-                done = envs.D(s, a, s_)
-                # add your Q-learning algorithm
-
-                agent.update(s, a, s_, r, done)
-
-                s = s_
-                if done:
-                    break
+                for _ in range(h):
+                    if np.random.rand() < epsilon:
+                        a = envs.action_sample()
+                    else:
+                        a = agent.select_action(s)
+                    s_ = dynamics_model.predict(s, a)
+                    r = envs.R(s, a, s_)
+                    done = envs.D(s, a, s_)
+                    # add your Q-learning algorithm
+                    s = s_
+                    if done:
+                        break
 
         # for _ in range(m):
         #     dynamics_model.train_transition(32)

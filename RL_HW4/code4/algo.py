@@ -15,17 +15,17 @@ class QAgent:
 
 
 class Myagent:
-    def __init__(self, lr=1, gamma=0.99):
+    def __init__(self, lr, gamma):
         super(Myagent, self).__init__()
         self.lr = lr
         self.gamma = gamma
         self.Qtable = np.zeros((8, 8, 2, 4))
 
     def update(self, ob, action, ob_next, reward, done):
-        x, y, key = ob.astype(np.int32)
-        x1, y1, key1 = ob_next.astype(np.int32)
+        x, y, key = ob
+        x1, y1, key1 = ob_next
 
-        Q_predict = self.Qtable[x, y, key,  action]
+        Q_predict = self.Qtable[x, y, key, action]
 
         if done:
             Q_target = reward
@@ -36,7 +36,7 @@ class Myagent:
         self.Qtable[x, y, key, action] += self.lr * (Q_target - Q_predict)
 
     def select_action(self, ob):
-        x, y, key = ob.astype(np.int32)
+        x, y, key = ob
         return np.argmax(self.Qtable[x, y, key, :])
 
 
@@ -67,19 +67,32 @@ class Model:
 class DynaModel(Model):
     def __init__(self, width, height, policy):
         Model.__init__(self, width, height, policy)
-        pass
+        self.Model = {}
 
     def store_transition(self, s, a, r, s_):
-        pass
+        s = tuple(s)
+        if s not in self.Model.keys():
+            self.Model[s] = [[] for _ in range(4)]
+            self.Model[s][a] = [r, s_]
+        else:
+            self.Model[s][a] = [r, s_]
 
     def sample_state(self):
-        pass
+        idx = np.random.randint(0, len(self.Model.keys()))
+        s = list(self.Model.keys())[idx]
+        return list(s)
 
     def sample_action(self, s):
-        pass
+        sample = []
+        s = tuple(s)
+        for idx in range(4):
+            if self.Model[s][idx] != []:
+                sample.append(idx)
+        return np.random.choice(sample)
 
     def predict(self, s, a):
-        pass
+        s = tuple(s)
+        return self.Model[s][a][1]
 
     def train_transition(self):
         pass
