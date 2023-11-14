@@ -3,6 +3,7 @@ import os
 import random
 import torch
 from torch.optim import Adam
+from torch.nn import MSELoss
 import torch.nn.functional as F
 from tester import Tester
 from buffer import RolloutStorage
@@ -26,7 +27,7 @@ class CnnDDQNAgent:
         self.target_model.load_state_dict(self.model.state_dict())
         self.model_optim = torch.optim.RMSprop(self.model.parameters(), lr=self.config.learning_rate,
                                                eps=1e-5, weight_decay=0.95, momentum=0, centered=True)
-
+        self.loss_fn = MSELoss()
         if self.config.use_cuda:
             self.cuda()
         self.double = self.config.double
@@ -59,23 +60,21 @@ class CnnDDQNAgent:
         # q_values is a vector with size (batch_size, action_shape, 1)
         # each dimension i represents Q(s0,a_i)
         q_values = self.model(s0).cuda()
-        q_next = self.target_model(s1).cuda()
 
         q_eval = q_values.gather(1, a)
 
-        if self.double:
-            actions = self.model(s1).cuda().max(1)[1].unsqueeze(-1)
-            q_next = q_next.gather(1, actions)
-            q_target = r + (1. - done) * self.config.gamma * \
-                q_next
-        # How to calculate argmax_a Q(s,a)
-        else:
-            q_target = r + (1. - done) * self.config.gamma * \
-                q_next.max(1)[0].unsqueeze(-1)
+        with torch.no_grad():
+            q_next = self.target_model(s1).cuda()
+            if self.double:
+                actions = self.model(s1).cuda().max(1)[1].unsqueeze(1)
+                q_next = q_next.gather(1, actions)
+                q_target = r + self.config.gamma * q_next * (1. - done)
+            else:
+                q_target = r + self.config.gamma * q_next.max(1)[0].unsqueeze(1) * (1. - done)
 
         # Tips: function torch.gather may be helpful
         # You need to design how to calculate the loss
-        loss = F.mse_loss(q_target, q_eval)
+        loss = F.mse_loss(q_eval, q_target)
 
         self.model_optim.zero_grad()
         loss.backward()
