@@ -74,14 +74,24 @@ class CnnDDQNAgent:
 
         # Tips: function torch.gather may be helpful
         # You need to design how to calculate the loss
-        loss = F.mse_loss(q_eval, q_target)
+        loss = self.loss_fn(q_eval, q_target)
 
         self.model_optim.zero_grad()
         loss.backward()
         self.model_optim.step()
 
         if fr % self.config.update_tar_interval == 0:
+            # params1 = list(self.model.parameters())
+            # params2 = list(self.target_model.parameters())
+
+            # # 比较参数
+            # for p1, p2 in zip(params1, params2):
+            #     if torch.allclose(p1.data, p2.data):
+            #         print("Parameters are equal.")
+            #     else:
+            #         print("Parameters are not equal.")
             self.target_model.load_state_dict(self.model.state_dict())
+
         return loss.item()
 
     def cuda(self):
