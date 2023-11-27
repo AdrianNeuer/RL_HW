@@ -50,7 +50,7 @@ def main():
     epsilon = 0.2
     alpha = 0.2
     gamma = 0.99
-    n = 0
+    n = 2000
     m = 0
     start_planning = 0
     h = 0

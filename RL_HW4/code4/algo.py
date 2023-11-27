@@ -34,6 +34,7 @@ class Myagent:
                 np.max(self.Qtable[x1, y1, key1, :])
 
         self.Qtable[x, y, key, action] += self.lr * (Q_target - Q_predict)
+        self.Qtable[x, y, key, action] = np.clip(self.Qtable[x, y, key, action], -100, 100)
 
     def select_action(self, ob):
         x, y, key = ob
@@ -148,6 +149,16 @@ class NetworkModel(Model):
             a_list.append([a])
             r_list.append(r)
             s_next_list.append(s_)
+        # 新增部分
+        if len(self.sensitive_index) > 0:
+            for _ in range(batch_size):
+                idx = np.random.randint(0, len(self.sensitive_index))
+                idx = self.sensitive_index[idx]
+                s, a, r, s_ = self.buffer[idx]
+                s_list.append(s)
+                a_list.append([a])
+                r_list.append(r)
+                s_next_list.append(s_)
 
         x_mse = self.sess.run([self.x_mse,  self.opt_x], feed_dict={
             self.x_ph: s_list, self.a_ph: a_list, self.x_next_ph: s_next_list

@@ -47,23 +47,21 @@ def main():
     # agent initial
     # you should finish your agent with QAgent
     # e.g. agent = myQAgent()
-    agent = Myagent()
-    dynamics_model = NetworkModel(8, 8, policy=agent)
     epsilon = 0.2
     alpha = 0.2
     gamma = 0.99
-    n = 0
-    m = 0
+    n = 200
+    m = 700
     start_planning = 0
-    h = 0
-
+    h = 1
+    agent = Myagent(alpha, gamma)
+    dynamics_model = NetworkModel(8, 8, policy=agent)
+    count = 0
     # start to train your agent
     for i in range(num_updates * 10):
         # an example of interacting with the environment
         obs = envs.reset()
         obs = obs.astype(int)
-        print(obs)
-        assert 0
         for step in range(args.num_steps):
             # Sample actions with epsilon greedy policy
 
@@ -97,12 +95,13 @@ def main():
                     r = envs.R(s, a, s_)
                     done = envs.D(s, a, s_)
                     # add your Q-learning algorithm
+                    agent.update(s, a, s_, r, done)
                     s = s_
                     if done:
                         break
 
-        # for _ in range(m):
-        #     dynamics_model.train_transition(32)
+        for _ in range(m):
+            dynamics_model.train_transition(32)
 
         if (i + 1) % (args.log_interval) == 0:
             total_num_steps = (i + 1) * args.num_steps
@@ -131,6 +130,13 @@ def main():
             record['mean'].append(np.mean(reward_episode_set))
             record['max'].append(np.max(reward_episode_set))
             record['min'].append(np.min(reward_episode_set))
+            if np.mean(reward_episode_set)>90 and np.min(reward_episode_set)>80:
+                count += 1
+            else:
+                count = 0
+            if count==2:
+                print("Time: {}, Step: {}".format(time.time() - start,total_num_steps - 100))
+                break
             plot(record, args.info)
 
 
