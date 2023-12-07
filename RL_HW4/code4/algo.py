@@ -34,7 +34,7 @@ class Myagent:
                 np.max(self.Qtable[x1, y1, key1, :])
 
         self.Qtable[x, y, key, action] += self.lr * (Q_target - Q_predict)
-        self.Qtable[x, y, key, action] = np.clip(self.Qtable[x, y, key, action], -100, 100)
+        # self.Qtable[x, y, key, action] = np.clip(self.Qtable[x, y, key, action], -100, 100)
 
     def select_action(self, ob):
         x, y, key = ob

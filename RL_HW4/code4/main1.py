@@ -50,7 +50,7 @@ def main():
     epsilon = 0.2
     alpha = 0.2
     gamma = 0.99
-    n = 2000
+    n = 3000
     m = 0
     start_planning = 0
     h = 0
@@ -59,6 +59,7 @@ def main():
     dynamics_model = DynaModel(8, 8, policy=agent)
 
     # start to train your agent
+    count = 0
     for i in range(200):
         # an example of interacting with the environment
         obs = envs.reset()
@@ -95,10 +96,6 @@ def main():
 
                 agent.update(s, a, s_, r, done)
 
-                s = s_
-                if done:
-                    break
-
         # for _ in range(m):
         #     dynamics_model.train_transition(32)
 
@@ -129,6 +126,15 @@ def main():
             record['mean'].append(np.mean(reward_episode_set))
             record['max'].append(np.max(reward_episode_set))
             record['min'].append(np.min(reward_episode_set))
+            plot(record, args.info)
+            """if np.mean(reward_episode_set) > 90 and np.min(reward_episode_set) > 80:
+                count += 1
+            else:
+                count = 0
+            if count == 2:
+                print("Time: {}, Step: {}".format(
+                    time.time() - start, total_num_steps - 100))
+                break"""
             plot(record, args.info)
 
 
