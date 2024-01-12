@@ -4,9 +4,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 import copy
 
-from algorithm.network.dynamics import Stochastic_Dynamics
-from algorithm.network.reward import Reward
-from algorithm.utils.normalizer import Normalizer
+from algorithm_offline.network.dynamics import Stochastic_Dynamics
+from algorithm_offline.network.reward import Reward
+from algorithm_offline.utils.normalizer import Normalizer
 
 
 class Ensemble_Guassian_Dynamics:

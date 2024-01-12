@@ -1,10 +1,14 @@
 import gym
 import math
+import os
 import numpy as np
 from torch.nn.functional import softplus
 from torch.distributions import constraints
 from torch.distributions.transforms import Transform
 from gym.wrappers import RescaleAction
+import tensorflow as tf
+
+tf.compat.v1.disable_eager_execution()
 
 
 class TanhTransform(Transform):
@@ -84,10 +88,8 @@ class MeanStdevFilter():
         self._count += x.shape[0]
         self.mean = self._running_sum / self._count
         self.stdev = np.sqrt(
-            np.maximum(
-                self._running_sum_sq / self._count - self.mean ** 2,
-                self.eps
-            ))
+            np.maximum(self._running_sum_sq / self._count - self.mean**2,
+                       self.eps))
 
     def __call__(self, x):
         return np.clip(((x - self.mean) / self.stdev), -self.clip, self.clip)
@@ -110,7 +112,61 @@ def evaluation(policy, env_name, eval_episodes=10):
     avg_reward /= eval_episodes
 
     print("---------------------------------------")
-    print("total_eval_episode : {}, avg_rewards : {}".format(eval_episodes, avg_reward))
+    print("total_eval_episode : {}, avg_rewards : {}".format(
+        eval_episodes, avg_reward))
     print("---------------------------------------")
 
     return avg_reward
+
+
+def get_output_folder(parent_dir, env_name):
+    """Return save folder.
+
+    Assumes folders in the parent_dir have suffix -run{run
+    number}. Finds the highest run number and sets the output folder
+    to that number + 1. This is just convenient so that if you run the
+    same script multiple times tensorboard can plot all of the results
+    on the same plots with different names.
+
+    Parameters
+    ----------
+    parent_dir: str
+      Path of the directory containing all experiment runs.
+
+    Returns
+    -------
+    parent_dir/run_dir
+      Path to this run's save directory.
+    """
+    os.makedirs(parent_dir, exist_ok=True)
+    experiment_id = 0
+    for folder_name in os.listdir(parent_dir):
+        if not os.path.isdir(os.path.join(parent_dir, folder_name)):
+            continue
+        try:
+            folder_name = int(folder_name.split('-run')[-1])
+            if folder_name > experiment_id:
+                experiment_id = folder_name
+        except:
+            pass
+    experiment_id += 1
+
+    parent_dir = os.path.join(parent_dir, env_name)
+    parent_dir = parent_dir + '-run{}'.format(experiment_id)
+    os.makedirs(parent_dir, exist_ok=True)
+    return parent_dir
+
+
+class TensorBoardLogger(object):
+    """
+    Code referenced from https://gist.github.com/gyglim/1f8dfb1b5c82627ae3efcfbbadb9f514
+    """
+    def __init__(self, log_dir):
+        """Create a summary writer logging to log_dir."""
+        self.writer = tf.compat.v1.summary.FileWriter(log_dir)
+
+    def scalar_summary(self, tag, step, value):
+        """Log a scalar variable."""
+        summary = tf.compat.v1.Summary(
+            value=[tf.compat.v1.Summary.Value(tag=tag, simple_value=value)])
+        self.writer.add_summary(summary, step)

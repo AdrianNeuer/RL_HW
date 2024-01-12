@@ -3,8 +3,8 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 
-from algorithm.network.actor import Stochastic_Actor
-from algorithm.network.critic import Twin_Qnetwork
+from algorithm_offline.network.actor import Stochastic_Actor
+from algorithm_offline.network.critic import Twin_Qnetwork
 
 
 class SAC:

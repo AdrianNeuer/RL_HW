@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.distributions import Normal, TransformedDistribution
 
-from algorithm.utils.utils import TanhTransform
+from algorithm_offline.utils.utils import TanhTransform
 
 
 # class Stochastic_Actor(nn.Module):

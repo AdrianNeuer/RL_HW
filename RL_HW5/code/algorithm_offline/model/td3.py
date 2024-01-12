@@ -4,8 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import copy
 
-from algorithm.network.actor import Deterministic_Actor
-from algorithm.network.critic import Twin_Qnetwork
+from algorithm_offline.network.actor import Deterministic_Actor
+from algorithm_offline.network.critic import Twin_Qnetwork
 
 
 class TD3:
